@@ -1,12 +1,8 @@
 ﻿<!doctype html>
-<html><!-- InstanceBegin template="/Templates/template.dwt.php" codeOutsideHTMLIsLocked="false" -->
+<html>
 <head>
 <meta charset="UTF-8">
-<!-- InstanceBeginEditable name="doctitle" -->
 <title>Zedom8or</title>
-<!-- InstanceEndEditable -->
-<!-- InstanceBeginEditable name="head" -->
-<!-- InstanceEndEditable -->
 <style type="text/css">
 <!--
 body {
@@ -16,7 +12,6 @@ body {
 	padding: 0;
 	color: #000;
 }
-
 /* ~~ Element/tag selectors ~~ */
 ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
 	padding: 0;
@@ -30,10 +25,9 @@ h1, h2, h3, h4, h5, h6, p {
 a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
 	border: none;
 }
-
 /* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
 a:link {
-	color:#DDF;
+	color: #DDF;
 	text-decoration: underline; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
 }
 a:visited {
@@ -44,24 +38,20 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 	color: #DDF;
 	text-decoration: none;
 }
-
 /* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
 .container {
 	width: 100%;
 	max-width: 1260px;/* a max-width may be desirable to keep this layout from getting too wide on a large monitor. This keeps line length more readable. IE6 does not respect this declaration. */
 	min-width: 780px;/* a min-width may be desirable to keep this layout from getting too narrow. This keeps line length more readable in the side columns. IE6 does not respect this declaration. */
 	background-color: #000;
-	color: #FFF;
-	/*margin: 0 auto;*/ /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
+	color: #FFF;/*margin: 0 auto;*/ /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
 }
-
 /* ~~ the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo ~~ */
 .header {
 	background-color: #000;
 	display: block;
 	width: 100%;
 }
-
 /* ~~ These are the columns for the layout. ~~ 
 
 1) Padding is only placed on the top and/or bottom of the divs. The elements within these divs have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the div itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design.
@@ -84,12 +74,10 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 	width: 80%;
 	float: left;
 }
-
 /* ~~ This grouped selector gives the lists in the .content area space ~~ */
-.content ul, .content ol { 
+.content ul, .content ol {
 	padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
 }
-
 /* ~~ The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry) ~~ */
 ul.nav {
 	list-style: none; /* this removes the list marker */
@@ -110,7 +98,6 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background
 	background-color: #000;
 	color: #FFF;
 }
-
 /* ~~ The footer ~~ */
 .footer {
 	padding: 10px 0;
@@ -119,7 +106,6 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background
 	position: relative;/* this gives IE6 hasLayout to properly clear */
 	clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
 }
-
 /* ~~ miscellaneous float/clear classes ~~ */
 .fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
 	float: right;
@@ -130,55 +116,54 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background
 	margin-right: 8px;
 }
 .clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
-	clear:both;
-	height:0;
+	clear: both;
+	height: 0;
 	font-size: 1px;
 	line-height: 0px;
 }
-
 .footer p {
 	text-align: center;
 }
-
 -->
-</style><!--[if lte IE 7]>
-<style>
-.content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
-ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it needs to correct extra whiltespace between the links */
 </style>
-<![endif]--></head>
+</head>
 
 <body>
-
 <div class="container">
   <div class="header">
-  <table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr height="90">
-  <td height="90" width="20%" valign="middle" align="left">
-  <img src="" name="Zedom8or" alt="Zedom8or" width="100%" height="90" style="background-color: #DDD; display: block;" />
-  </td>
-  <td height="90" valign="middle" align="right" style="padding-right: 8px;"><!-- InstanceBeginEditable name="PageName" -->Status<!-- InstanceEndEditable --></td>
-  </tr>
-  </table>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr height="90">
+        <td height="90" width="20%" valign="middle" align="left"><img src="" name="Zedom8or" alt="Zedom8or" width="100%" height="90" style="background-color: #000; color: #FFF; display: block;" /></td>
+        <td height="90" valign="middle" align="right" style="padding-right: 8px;">Status</td>
+      </tr>
+    </table>
   </div>
   <div class="sidebar1">
     <ul class="nav">
       <li><a href="index.php">Status</a></li>
     </ul>
-    <!-- end .sidebar1 --></div>
-  <div class="content"><!-- InstanceBeginEditable name="PageBody" -->
-    <h1>Status</h1>
-    <p><em>The system is ready for IR and network control commands!</em></p>
-  <!-- InstanceEndEditable -->
-  <!-- end .content --></div>
+  </div>
+  <div class="content">
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <p>Paragraph</p>
+    <ul>
+    <li>Unordered List Item</li>
+    <li>Unordered List Item</li>
+    <li>Unordered List Item</li>
+    </ul>
+    <ol>
+    <li>Ordered List Item</li>
+    <li>Ordered List Item</li>
+    <li>Ordered List Item</li>
+    </ol>
+  </div>
   <div class="footer">
-    <p>Zedom8or&nbsp;|&nbsp;The&nbsp;Open&nbsp;Source&nbsp;Home&nbsp;Theatre&nbsp;Automation&nbsp;Solution
-    <br />
-    by&nbsp;Quinn&nbsp;Ebert&nbsp;|&nbsp;<a href="http://www.QuinnEbert.net">http://www.QuinnEbert.net</a>
-    <br />
-    <em style="display: block; padding-top: 4px;">This product is in no way endorsed, condoned, or supported by Pioneer Corporation of America, it's parent or related companies, or by Jon Rhees of the USB-UIRT project.</em>
-    </p>
-    <!-- end .footer --></div>
-<!-- end .container --></div>
+    <p>Zedom8or&nbsp;|&nbsp;The&nbsp;Open&nbsp;Source&nbsp;Home&nbsp;Theatre&nbsp;Automation&nbsp;Solution <br />
+      by&nbsp;Quinn&nbsp;Ebert&nbsp;|&nbsp;<a href="http://www.QuinnEbert.net">http://www.QuinnEbert.net</a> <br />
+      <em style="display: block; padding-top: 4px;">This product is in no way endorsed, condoned, or supported by Pioneer Corporation of America, it's parent or related companies, or by Jon Rhees of the USB-UIRT project.</em> </p>
+  </div>
+</div>
 </body>
-<!-- InstanceEnd --></html>
+</html>
