@@ -158,6 +158,7 @@ div.content ul li {
 		$header = 'Setup';
         $body = '<p><em>You need to setup a Zedom8or configuration file!</em></p>';
 	} else {
+		require_once($cfgFile);
 		if (strlen($_SERVER['QUERY_STRING'])) {
 			$appFile = dirname(__FILE__).'/func_'.$_SERVER['QUERY_STRING'].'.php';
 			if ( file_exists($appFile)==false || is_readable($appFile)==false ) {
@@ -167,7 +168,6 @@ div.content ul li {
 				require_once($appFile);
 			}
 		} else {
-			require_once($cfgFile);
 			$header = 'Welcome';
 			ob_start(); ?>
 	        <p><em>Select an option from the sidebar to begin...</em></p>
