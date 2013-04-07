@@ -12,23 +12,24 @@ body {
 	padding: 0;
 	color: #000;
 }
-/* ~~ Element/tag selectors ~~ */
-ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+li {
+	border-right: 3px #DDD solid;
+}
+ul, ol, dl {
 	padding: 0;
 	margin: 0;
 }
 h1, h2, h3, h4, h5, h6, p {
-	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+	margin-top: 0;
 	padding-right: 15px;
-	padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+	padding-left: 15px;
 }
-a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+a img {
 	border: none;
 }
-/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
 a:link {
 	color: #DDF;
-	text-decoration: underline; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+	text-decoration: underline;
 }
 a:visited {
 	color: #DDF;
@@ -41,7 +42,7 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 /* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
 .container {
 	width: 100%;
-	max-width: 1260px;/* a max-width may be desirable to keep this layout from getting too wide on a large monitor. This keeps line length more readable. IE6 does not respect this declaration. */
+	max-width: 1280px;/* a max-width may be desirable to keep this layout from getting too wide on a large monitor. This keeps line length more readable. IE6 does not respect this declaration. */
 	min-width: 780px;/* a min-width may be desirable to keep this layout from getting too narrow. This keeps line length more readable in the side columns. IE6 does not respect this declaration. */
 	background-color: #000;
 	color: #FFF;/*margin: 0 auto;*/ /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
@@ -52,17 +53,6 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 	display: block;
 	width: 100%;
 }
-/* ~~ These are the columns for the layout. ~~ 
-
-1) Padding is only placed on the top and/or bottom of the divs. The elements within these divs have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the div itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design.
-
-2) No margin has been given to the columns since they are all floated. If you must add margin, avoid placing it on the side you're floating toward (for example: a right margin on a div set to float right). Many times, padding can be used instead. For divs where this rule must be broken, you should add a "display:inline" declaration to the div's rule to tame a bug where some versions of Internet Explorer double the margin.
-
-3) Since classes can be used multiple times in a document (and an element can also have multiple classes applied), the columns have been assigned class names instead of IDs. For example, two sidebar divs could be stacked if necessary. These can very easily be changed to IDs if that's your preference, as long as you'll only be using them once per document.
-
-4) If you prefer your nav on the right instead of the left, simply float these columns the opposite direction (all right instead of all left) and they'll render in reverse order. There's no need to move the divs around in the HTML source.
-
-*/
 .sidebar1 {
 	float: left;
 	width: 20%;
@@ -74,11 +64,9 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
 	width: 80%;
 	float: left;
 }
-/* ~~ This grouped selector gives the lists in the .content area space ~~ */
 .content ul, .content ol {
-	padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
+	padding: 0 15px 15px 40px;
 }
-/* ~~ The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry) ~~ */
 ul.nav {
 	list-style: none; /* this removes the list marker */
 	border-top: 1px solid #666; /* this creates the top border for the links - all others are placed using a bottom border on the LI */
@@ -100,7 +88,7 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background
 }
 /* ~~ The footer ~~ */
 .footer {
-	padding: 10px 0;
+	padding: 0px;
 	background-color: #000;
 	color: #FFF;
 	position: relative;/* this gives IE6 hasLayout to properly clear */
@@ -124,6 +112,9 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background
 .footer p {
 	text-align: center;
 }
+div.content ul li {
+	border-right: 0px;
+}
 -->
 </style>
 </head>
@@ -134,7 +125,8 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
       <tr height="90">
         <td height="90" width="20%" valign="middle" align="left"><img src="" name="Zedom8or" alt="Zedom8or" width="100%" height="90" style="background-color: #000; color: #FFF; display: block;" /></td>
-        <td height="90" valign="middle" align="right" style="padding-right: 8px;">Status</td>
+        <td height="90" valign="middle" align="center" width="8">&nbsp;</td>
+        <td height="90" valign="middle" align="right" style="padding-right: 8px; border-bottom: 1px #DDD solid;">Status</td>
       </tr>
     </table>
   </div>
@@ -148,21 +140,17 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background
     <h2>Heading 2</h2>
     <h3>Heading 3</h3>
     <p>Paragraph</p>
+    <p><a href="http://www.quinnebert.net/">Hyperlink</a></p>
     <ul>
-    <li>Unordered List Item</li>
-    <li>Unordered List Item</li>
-    <li>Unordered List Item</li>
+      <li>Unordered List Item</li>
+      <li>Unordered List Item</li>
+      <li>Unordered List Item</li>
     </ul>
-    <ol>
-    <li>Ordered List Item</li>
-    <li>Ordered List Item</li>
-    <li>Ordered List Item</li>
-    </ol>
   </div>
   <div class="footer">
     <p>Zedom8or&nbsp;|&nbsp;The&nbsp;Open&nbsp;Source&nbsp;Home&nbsp;Theatre&nbsp;Automation&nbsp;Solution <br />
       by&nbsp;Quinn&nbsp;Ebert&nbsp;|&nbsp;<a href="http://www.QuinnEbert.net">http://www.QuinnEbert.net</a> <br />
-      <em style="display: block; padding-top: 4px;">This product is in no way endorsed, condoned, or supported by Pioneer Corporation of America, it's parent or related companies, or by Jon Rhees of the USB-UIRT project.</em> </p>
+      <em style="border-top: 3px solid #DDD; display: block; margin-top: 8px; padding-top: 4px;">This product is in no way endorsed, condoned,<br />or supported by Pioneer Corporation of America, its<br />parent or related companies, or by Jon Rhees of<br />the USB-UIRT project.</em> </p>
   </div>
 </div>
 </body>
