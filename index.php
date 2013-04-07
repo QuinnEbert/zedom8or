@@ -1,4 +1,7 @@
-﻿<!doctype html>
+﻿<?php
+require_once(dirname(__FILE__).'/PioneerRebel/pioneer.lib.php');
+?>
+<!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -126,26 +129,55 @@ div.content ul li {
       <tr height="90">
         <td height="90" width="20%" valign="middle" align="left"><img src="" name="Zedom8or" alt="Zedom8or" width="100%" height="90" style="background-color: #000; color: #FFF; display: block;" /></td>
         <td height="90" valign="middle" align="center" width="8">&nbsp;</td>
-        <td height="90" valign="middle" align="right" style="padding-right: 8px; border-bottom: 1px #DDD solid;">Status</td>
+        <td height="90" valign="middle" align="right" style="padding-right: 8px; border-bottom: 1px #DDD solid;">&nbsp;</td>
       </tr>
     </table>
   </div>
   <div class="sidebar1">
     <ul class="nav">
-      <li><a href="index.php">Status</a></li>
+      <li><a href="index.php">Welcome</a></li>
+      <li><a href="index.php?status">Status</a></li>
     </ul>
   </div>
   <div class="content">
-    <h1>Heading 1</h1>
-    <h2>Heading 2</h2>
-    <h3>Heading 3</h3>
-    <p>Paragraph</p>
-    <p><a href="http://www.quinnebert.net/">Hyperlink</a></p>
-    <ul>
-      <li>Unordered List Item</li>
-      <li>Unordered List Item</li>
-      <li>Unordered List Item</li>
-    </ul>
+	<?php
+	
+	function render_zPage($header,$body) {
+		echo('<table width="80%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+        <td>
+        <h1>'.$header.'</h1>
+        '.$body.'
+        </td>
+        </tr>
+        </table>');
+	}
+	
+	$cfgFile = dirname(__FILE__).'/Z8Config.php';
+	if (! file_exists($cfgFile)) {
+		$header = 'Setup';
+        $body = '<p><em>You need to setup a Zedom8or configuration file!</em></p>';
+	} else {
+		if (strlen($_SERVER['QUERY_STRING'])) {
+			$appFile = dirname(__FILE__).'/func_'.$_SERVER['QUERY_STRING'].'.php';
+			if ( file_exists($appFile)==false || is_readable($appFile)==false ) {
+				$header = 'Error';
+				$body = '<p>The requested function isn\'t supported here!</p>';
+			} else {
+				require_once($appFile);
+			}
+		} else {
+			require_once($cfgFile);
+			$header = 'Welcome';
+			ob_start(); ?>
+	        <p><em>Select an option from the sidebar to begin...</em></p>
+    	    <p><em style="color: #CCC;">Pioneer Rebel server: <?php echo($pioneer); ?></em></p>
+        	<?php $body = ob_get_contents();
+			ob_end_clean();
+		}
+	}
+	render_zPage($header,$body);
+	?>
   </div>
   <div class="footer">
     <p>Zedom8or&nbsp;|&nbsp;The&nbsp;Open&nbsp;Source&nbsp;Home&nbsp;Theatre&nbsp;Automation&nbsp;Solution <br />
