@@ -1,0 +1,2 @@
+[07-Apr-2013 22:11:47 UTC] PHP Warning:  fsockopen(): unable to connect to 192.168.1.13:8102 (Connection refused) in /Users/quinn/Sites/zedom8or/PioneerRebel/pioneer.lib.php on line 27
+[07-Apr-2013 22:11:47 UTC] PHP Warning:  fsockopen(): unable to connect to 192.168.1.13:8102 (Connection refused) in /Users/quinn/Sites/zedom8or/PioneerRebel/pioneer.lib.php on line 27
