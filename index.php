@@ -118,6 +118,24 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background
 div.content ul li {
 	border-right: 0px;
 }
+td {
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	margin-left: 0px;
+	padding-left: 8px;
+}
+td h3 {
+	margin-bottom: 5px;
+	padding-bottom: 0px;
+	margin-left: 0px;
+	padding-left: 1px;
+}
+td p {
+	margin-bottom: 7px;
+	padding-bottom: 0px;
+	margin-left: 0px;
+	padding-left: 0px;
+}
 -->
 </style>
 </head>
@@ -127,8 +145,9 @@ div.content ul li {
   <div class="header">
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
       <tr height="90">
-        <td height="90" width="20%" valign="middle" align="left"><img src="" name="Zedom8or" alt="Zedom8or" width="100%" height="90" style="background-color: #000; color: #FFF; display: block;" /></td>
-        <td height="90" valign="middle" align="center" width="8">&nbsp;</td>
+        <td height="90" width="20%" valign="middle" align="left" style="margin: 0px; padding: 0px;"><img src="" name="Zedom8or" alt="Zedom8or" width="100%" height="90" style="background-color: #000; color: #FFF; display: block; margin: 0px; padding: 0px;" /></td>
+        <td height="90" valign="middle" align="center" width="8" style="margin: 0px; padding: 0px;">&nbsp;</td>
+        <td height="90" valign="middle" align="center" width="1" style="padding-right: 8px; border-bottom: 1px #DDD solid;">&nbsp;</td>
         <td height="90" valign="middle" align="right" style="padding-right: 8px; border-bottom: 1px #DDD solid;">&nbsp;</td>
       </tr>
     </table>
@@ -147,7 +166,7 @@ div.content ul li {
 		echo('<table width="80%" border="0" cellpadding="0" cellspacing="0">
         <tr>
         <td>
-        <h1>'.$header.'</h1>
+        <h1 style="margin-bottom: 8px; margin-top: 8px;">'.$header.'</h1>
         '.$body.'
         </td>
         </tr>

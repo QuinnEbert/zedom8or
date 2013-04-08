@@ -18,8 +18,10 @@ require_once($ourFile);
 		xmlhttp.send();
 	}
 </script>
-<h3>Pioneer VSX-1022-K</h3>
-<p><input type="button" onClick="pvRebel_setPower('0')" name="Power Off" value="Power Off" /><input type="button" onClick="pvRebel_setPower('1')" name="Power On" value="Power On" /></p>
+<table border="1" cellspacing="1" cellpadding="4" style="padding: 0px; margin: 0px; margin-left: 24px; margin-bottom: 16px;">
+<tr><td><h3>Pioneer VSX-1022-K</h3></td></tr>
+<tr><td><p><input type="button" onClick="pvRebel_setPower('0')" name="Power Off" value="Power Off" /><input type="button" onClick="pvRebel_setPower('1')" name="Power On" value="Power On" /></p></td></tr>
+</table>
 <?php
 $body = ob_get_contents();
 ob_end_clean();
