@@ -9,13 +9,12 @@ require_once($ourFile);
 ?>
 <script type="text/javascript">
 	function pvRebel_setPower(fnPower) {
-		console.log("<?php echo( $ourFile . '?power=' ); ?>"+fnPower);
 		if (window.XMLHttpRequest) {
 			xmlhttp=new XMLHttpRequest();
 		} else {
 			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 		}
-		xmlhttp.open("GET","<?php echo( $ourFile . '?power=' ); ?>"+fnPower,false);
+		xmlhttp.open("GET","<?php echo( $ourFile . '?power=' ); ?>"+fnPower+"&pioneer=<?php echo($pioneer); ?>",false);
 		xmlhttp.send();
 	}
 </script>
