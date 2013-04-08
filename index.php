@@ -156,6 +156,9 @@ td p {
     <ul class="nav">
       <li><a href="index.php">Welcome</a></li>
       <li><a href="index.php?powers">Power Switches</a></li>
+      <li><a href="index.php?vollev">Volume Levels</a></li>
+      <li><a href="index.php?inputs">Input Switches</a></li>
+      <li><a href="index.php?irtcfg">USB-UIRT Info</a></li>
       <li><a href="index.php?status">Status</a></li>
     </ul>
   </div>
