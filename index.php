@@ -136,6 +136,7 @@ div.content ul li {
   <div class="sidebar1">
     <ul class="nav">
       <li><a href="index.php">Welcome</a></li>
+      <li><a href="index.php?powers">Power Switches</a></li>
       <li><a href="index.php?status">Status</a></li>
     </ul>
   </div>
