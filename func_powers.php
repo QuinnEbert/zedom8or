@@ -8,6 +8,10 @@ $ourFile = 'PioneerRebel/ssCommon.php';
 require_once($ourFile);
 ?>
 <script type="text/javascript">
+	function cmboDbg_setPower(fnPower) {
+		pvRebel_setPower(fnPower);
+		vztvDbg_togPower();
+	}
 	function pvRebel_setPower(fnPower) {
 		if (window.XMLHttpRequest) {
 			xmlhttp=new XMLHttpRequest();
@@ -36,6 +40,14 @@ require_once($ourFile);
 <tr><td><h3>Vizio VL370M</h3></td></tr>
 <tr><td><p><input type="button" onClick="vztvDbg_togPower()" name="Power Toggle" value="Power Toggle" /></p></td></tr>
 </table>
+<table border="1" cellspacing="1" cellpadding="4" style="padding: 0px; margin: 0px; margin-left: 24px; margin-bottom: 16px;">
+<tr><td><h3>COMMAND COMBO: Pioneer VSX-1022-K + Vizio VL370M</h3></td></tr>
+<tr><td><p>
+<input type="button" onClick="cmboDbg_setPower('0')" name="Power Off the LCD" value="Power Off the LCD" />
+<input type="button" onClick="cmboDbg_setPower('1')" name="Power On the LCD" value="Power On the LCD" />
+</p></td></tr>
+</table>
+
 <?php
 $body = ob_get_contents();
 ob_end_clean();
