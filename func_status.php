@@ -26,6 +26,8 @@ foreach ($prState as $key=>$value) {
 <?php
 if (strlen(rtrim(`which apcaccess`))) {
 	$command = rtrim(`which apcaccess`);
+	if (strlen(trim($command))<1&&file_exists('/sbin/apcaccess')&&is_readable('/sbin/apcaccess'))
+		$command = '/sbin/apcaccess';
 	if ($apcupsd!==false) {
 		if ($apcupsd!==true) {
 			$command .= " status {$apcupsd}";
