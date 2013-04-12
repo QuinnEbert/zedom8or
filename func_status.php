@@ -24,10 +24,10 @@ foreach ($prState as $key=>$value) {
 <table style="padding: 0px; margin: 0px; margin-left: 24px; margin-bottom: 16px;" width="59%" border="1" cellspacing="1" cellpadding="4">
 <tr><td colspan="2"><h3>APC Backup Battery</h3></td></tr>
 <?php
-if (strlen(rtrim(`which apcaccess`))) {
-	$command = rtrim(`which apcaccess`);
-	if (strlen(trim($command))<1&&file_exists('/sbin/apcaccess')&&is_readable('/sbin/apcaccess'))
-		$command = '/sbin/apcaccess';
+$command = rtrim(`which apcaccess`);
+if (strlen(trim($command))<1&&file_exists('/sbin/apcaccess')&&is_readable('/sbin/apcaccess'))
+	$command = '/sbin/apcaccess';
+if (strlen(rtrim($command))) {
 	if ($apcupsd!==false) {
 		if ($apcupsd!==true) {
 			$command .= " status {$apcupsd}";
