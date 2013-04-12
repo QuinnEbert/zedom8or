@@ -10,6 +10,18 @@
 			alert("Input changed!");
 			<?php } ?>
 		}
+		function pvRebel_setMuting(setMuted) {
+			if (window.XMLHttpRequest) {
+				xmlhttp=new XMLHttpRequest();
+			} else {
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.open("GET","<?php echo( $ourFile . '?muted=' ); ?>"+setMuted,false);
+			xmlhttp.send();
+			<?php if ($confirm) { ?>
+			alert("Muted changed!");
+			<?php } ?>
+		}
 		function pvRebel_setPower(fnPower) {
 			if (window.XMLHttpRequest) {
 				xmlhttp=new XMLHttpRequest();

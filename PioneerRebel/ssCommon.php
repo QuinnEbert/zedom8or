@@ -50,4 +50,10 @@ if (isset($_GET['power'])) {
 	pvRebel_setPower($pioneer,intval($_GET['power']));
 	die("<pioneer_rebel>\n  <status>OK</status>\n</pioneer_rebel>\n");
 }
+if (isset($_GET['muted'])) {
+	require_once(dirname(__FILE__).'/pioneer.lib.php');
+	header('Content-Type: text/xml');
+	pvRebel_setMuting($pioneer,intval($_GET['muted']));
+	die("<pioneer_rebel>\n  <status>OK</status>\n</pioneer_rebel>\n");
+}
 ?>

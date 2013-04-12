@@ -72,7 +72,17 @@
 		$powerTo = 'F';
 		if ($fnPower)
 			$powerTo = 'O';
-		pvRebel_SEND_CMD($address,$fnInput.'P'.$powerTo);
+		pvRebel_SEND_CMD($address,'P'.$powerTo);
+	}
+	// Send a command to the 1022-K amp unit requesting the muting turn on or off
+	// 
+	// Pass $fnMuted=true for muted-on
+	// Pass $fnMuted=false for muted-off
+	function pvRebel_setMuting($address,$fnMuted) {
+		$mutedTo = 'F';
+		if ($fnMuted)
+			$mutedTo = 'O';
+		pvRebel_SEND_CMD($address,'M'.$mutedTo);
 	}
 	// Request the current status of audio output muting on the 1022-K amp unit
 	// On success returns *1* for un-muted (IE: "VOL XYZ" shown on LCD) or *0* for

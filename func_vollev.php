@@ -8,6 +8,15 @@ $ourFile = 'PioneerRebel/ssCommon.php';
 require_once($ourFile);
 ?>
 <script type="text/javascript">
+	function pvRebel_setMuting(setMuted) {
+		if (window.XMLHttpRequest) {
+			xmlhttp=new XMLHttpRequest();
+		} else {
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.open("GET","<?php echo( $ourFile . '?pioneer='.$pioneer.'&muted=' ); ?>"+setMuted,false);
+		xmlhttp.send();
+	}
 	function pvRebel_setVolDec() {
 		if (window.XMLHttpRequest) {
 			xmlhttp=new XMLHttpRequest();
@@ -31,7 +40,9 @@ require_once($ourFile);
 <tr><td><h3>Pioneer VSX-1022-K</h3></td></tr>
 <tr><td><p>
 	<input type="button" onClick="pvRebel_setVolDec()" name="Volume Down" value="Volume Down" />
-	<input type="button" onClick="pvRebel_setVolInc()" name="Volume Up" value="Volume Up" />
+	<input type="button" onClick="pvRebel_setVolInc()" name="Volume Up" value="Volume Up" /><br />
+	<input type="button" onClick="pvRebel_setMuting('0')" name="Muting Off" value="Muting Off" />
+	<input type="button" onClick="pvRebel_setMuting('1')" name="Muting On" value="Muting On" />
 </p></td></tr>
 </table>
 <?php
