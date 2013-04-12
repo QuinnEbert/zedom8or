@@ -17,10 +17,24 @@ require_once($ourFile);
 		xmlhttp.open("GET","<?php echo( $ourFile . '?power=' ); ?>"+fnPower+"&pioneer=<?php echo($pioneer); ?>",true);
 		xmlhttp.send();
 	}
+	function vztvDbg_togPower() {
+		if (window.XMLHttpRequest) {
+			xmlhttp=new XMLHttpRequest();
+		} else {
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.open("GET","index.php?powerOff_VizioTV=Y",true);
+		xmlhttp.send();
+	}
 </script>
 <table border="1" cellspacing="1" cellpadding="4" style="padding: 0px; margin: 0px; margin-left: 24px; margin-bottom: 16px;">
 <tr><td><h3>Pioneer VSX-1022-K</h3></td></tr>
 <tr><td><p><input type="button" onClick="pvRebel_setPower('0')" name="Power Off" value="Power Off" /><input type="button" onClick="pvRebel_setPower('1')" name="Power On" value="Power On" /></p></td></tr>
+</table>
+<!-- This is going away...It's just for testing... -->
+<table border="1" cellspacing="1" cellpadding="4" style="padding: 0px; margin: 0px; margin-left: 24px; margin-bottom: 16px;">
+<tr><td><h3>Vizio VL370M</h3></td></tr>
+<tr><td><p><input type="button" onClick="vztvDbg_togPower()" name="Power Toggle" value="Power Toggle" /></p></td></tr>
 </table>
 <?php
 $body = ob_get_contents();

@@ -1,4 +1,5 @@
 ﻿<?php
+require_once(dirname(__FILE__).'/ssCommon.php');
 require_once(dirname(__FILE__).'/PioneerRebel/pioneer.lib.php');
 ?>
 <!doctype html>
