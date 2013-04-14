@@ -21,17 +21,17 @@ function lirc_get_remote_keys($remote) {
 	$results = explode("\n",trim(`irsend LIST '$remote' '' '' 2>&1`));
 	return $results;
 	foreach ($results as $index => $value) {
-		$process = explode(': ',$value,2);
+		$process = explode(' ',$value,3);
 		// Deduplicate entry if needed:
 		if ($index > 0) {
 			for ($check = 0; $check < $index; $check++) {
-				if ($returns[$check] == $process[1])
+				if ($returns[$check] == $process[2])
 					continue 2;
 			}
 			$toKey = count($returns);
-			$returns[$toKey] = $process[1];
+			$returns[$toKey] = $process[2];
 		} else {
-			$returns[0] = $process[1];
+			$returns[0] = $process[2];
 		}
 	}
 	return $returns;
