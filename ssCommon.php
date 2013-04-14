@@ -23,6 +23,22 @@ if (isset($_GET['tivobox'])) $tivobox = $_GET['tivobox'];
  */
 
 //FIXME: this was only originally meant for testing!
+if ( isset($_GET['VizioTV_GoPioneer']) ) {
+	ob_start();
+	system('irsend SEND_START BS_Vizio KEY_TRAIN');
+	sleep(1);
+	system('irsend SEND_STOP BS_Vizio KEY_TRAIN');
+	sleep(10);
+	for ($i = 1; $i <= 7; $i++) {
+		system('irsend SEND_START BS_Vizio KEY_INPUT');
+		sleep(1);
+		system('irsend SEND_STOP BS_Vizio KEY_INPUT');
+	}
+	ob_end_clean();
+	header('Content-Type: text/xml');
+	die("<vzTryOut>\n  <status>OK</status>\n</vzTryOut>\n");
+}
+//FIXME: this was only originally meant for testing!
 if ( isset($_GET['powerOff_VizioTV']) ) {
 	ob_start();
 	system("irsend SEND_START 'BS_Vizio' 'KEY_POWER'");
