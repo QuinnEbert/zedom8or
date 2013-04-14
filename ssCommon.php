@@ -22,6 +22,7 @@ if (isset($_GET['tivobox'])) $tivobox = $_GET['tivobox'];
  *  CODE BELOW
  */
 
+//FIXME: this was only originally meant for testing!
 if ( isset($_GET['powerOff_VizioTV']) ) {
 	ob_start();
 	system("irsend SEND_START 'BS_Vizio' 'KEY_POWER'");
