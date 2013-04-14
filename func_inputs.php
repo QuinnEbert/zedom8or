@@ -26,6 +26,16 @@ require_once($ourFile);
 		xmlhttp.open("GET","index.php?VizioTV_GoPioneer=Y",true);
 		xmlhttp.send();
 	}
+	function comboDbg_GoVGA() {
+		pvRebel_setSource('05');
+		if (window.XMLHttpRequest) {
+			xmlhttp=new XMLHttpRequest();
+		} else {
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.open("GET","index.php?VizioTV_GoVGA=Y",true);
+		xmlhttp.send();
+	}
 </script>
 <?php
 $inNames["17"] = "iPod/USB Device";
@@ -56,6 +66,10 @@ $in_code = str_replace("\n","<br />",rtrim($in_code));
 <table border="1" cellspacing="1" cellpadding="4" style="padding: 0px; margin: 0px; margin-left: 24px; margin-bottom: 16px;">
 <tr><td><h3>Vizio VL370M</h3></td></tr>
 <tr><td style="margin-right:0px;padding-right:9px;"><p style="margin-right:0px;padding-right:0px;"><input type="button" onClick="vztvDbg_GoPioneer()" name="Switch to Pioneer VSX-1022-K" value="Switch to Pioneer VSX-1022-K" /></p></td></tr>
+</table>
+<table border="1" cellspacing="1" cellpadding="4" style="padding: 0px; margin: 0px; margin-left: 24px; margin-bottom: 16px;">
+<tr><td><h3>COMMAND COMBO: Pioneer VSX-1022-K + Vizio VL370M</h3></td></tr>
+<tr><td style="margin-right:0px;padding-right:9px;"><p style="margin-right:0px;padding-right:0px;"><input type="button" onClick="comboDbg_GoVGA()" name="Switch system to VGA" value="Switch system to VGA" /></p></td></tr>
 </table>
 <?php
 $body = ob_get_contents();
