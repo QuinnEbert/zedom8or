@@ -1,4 +1,17 @@
 ﻿<?php
+$irtConf = dirname(__FILE__).'/irtConf.json';
+if ( file_exists($irtConf) ) {
+	if ( ! is_readable($irtConf) ) {
+		die('<h1></h1><p>IRT config &quot;'.$irtConf.'&quot; can\'t be read.</p>');
+	}
+	if ( ! is_writable($irtConf) ) {
+		die('<h1></h1><p>IRT config &quot;'.$irtConf.'&quot; won\'t be writable.</p>');
+	}
+} else {
+	if ( ! is_writable(dirname(__FILE__)) ) {
+		die('<h1></h1><p>IRT config &quot;'.$irtConf.'&quot; won\'t be writable when creation is needed!</p>');
+	}
+}
 require_once(dirname(__FILE__).'/ssCommon.php');
 require_once(dirname(__FILE__).'/PioneerRebel/pioneer.lib.php');
 ?>
