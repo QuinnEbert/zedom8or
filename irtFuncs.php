@@ -19,7 +19,6 @@ function lirc_get_remote_names() {
 }
 function lirc_get_remote_keys($remote) {
 	$results = explode("\n",trim(`irsend LIST '$remote' '' '' 2>&1`));
-	return $results;
 	foreach ($results as $index => $value) {
 		$process = explode(' ',$value,3);
 		// Deduplicate entry if needed:
