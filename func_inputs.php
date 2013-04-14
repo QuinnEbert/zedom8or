@@ -26,9 +26,22 @@ require_once($ourFile);
 		xmlhttp.open("GET","index.php?VizioTV_GoPioneer=Y",true);
 		xmlhttp.send();
 	}
+	function vztvDbg_GoTaKa() {
+		if (window.XMLHttpRequest) {
+			xmlhttp=new XMLHttpRequest();
+		} else {
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.open("GET","index.php?VizioTV_GoTaKa=Y",true);
+		xmlhttp.send();
+	}
 	function comboDbg_GoTiVo() {
 		pvRebel_setSource('06');
 		vztvDbg_GoPioneer();
+	}
+	function comboDbg_GoTaKa() {
+		pvRebel_setSource('05');
+		vztvDbg_GoTaKa();
 	}
 	function comboDbg_GoVGA() {
 		pvRebel_setSource('05');
@@ -76,6 +89,7 @@ $in_code = str_replace("\n","<br />",rtrim($in_code));
 	<tr><td style="margin-right:0px;padding-right:9px;"><p style="margin-right:0px;padding-right:0px;">
 		<input type="button" onClick="comboDbg_GoTiVo()" name="Switch system to TiVo" value="Switch system to TiVo" />
 		<input type="button" onClick="comboDbg_GoVGA()" name="Switch system to VGA" value="Switch system to VGA" />
+		<input type="button" onClick="comboDbg_GoTaKa()" name="Switch system to Visualizer" value="Switch system to Visualizer" />
 	</p></td></tr>
 </table>
 <?php
