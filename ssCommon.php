@@ -22,6 +22,15 @@ if (isset($_GET['tivobox'])) $tivobox = $_GET['tivobox'];
  *  CODE BELOW
  */
 
+require_once(dirname(__FILE__).'/Z8Config.php');
+if (!isset($primePi)) $primePi = false;
+require_once(dirname(__FILE__).'/irtFuncs.php');
+if ($primePi) {
+	ob_start();
+	$notUsed = lirc_get_remote_names();
+	ob_end_clean();
+}
+
 //FIXME: this was only originally meant for testing!
 if ( isset($_GET['VizioTV_GoVGA']) ) {
 	ob_start();

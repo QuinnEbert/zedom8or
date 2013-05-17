@@ -1,0 +1,33 @@
+{
+    "type": "navigationview",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "mainView",
+        "designer|userAlias": "mainView",
+        "designer|initialView": true,
+        "id": "mainView",
+        "itemId": "mainView"
+    },
+    "id": "ExtBox1-ext-gen2815",
+    "designerId": "0d546e12-f27a-4db6-b227-78c2a0a787d5",
+    "cn": [
+        {
+            "type": "navigationbar",
+            "reference": {
+                "name": "navigationBar",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyNavigationBar",
+                "id": "mainNavi",
+                "itemId": "mainNavi"
+            },
+            "designerId": "b4946cee-c4dd-43e1-b39c-fabca5763051"
+        }
+    ]
+}

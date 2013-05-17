@@ -1,0 +1,20 @@
+{
+    "expandedState": {
+        "data": true,
+        "model": true,
+        "component": true,
+        "controller": true,
+        "resource": true,
+        "0d546e12-f27a-4db6-b227-78c2a0a787d5": {
+            "id": "0d546e12-f27a-4db6-b227-78c2a0a787d5",
+            "cn": [
+                {
+                    "id": "b4946cee-c4dd-43e1-b39c-fabca5763051"
+                }
+            ]
+        },
+        "0b59c67a-3729-41cf-8a5d-9c1d15895da0": {
+            "id": "0b59c67a-3729-41cf-8a5d-9c1d15895da0"
+        }
+    }
+}

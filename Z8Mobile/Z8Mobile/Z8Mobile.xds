@@ -1,0 +1,47 @@
+{
+    "name": "Z8Mobile",
+    "settings": {
+        "urlPrefix": "",
+        "spacesToIndent": 4,
+        "exportPath": "",
+        "sdkPath": "",
+        "lineEnding": "LF",
+        "genTimestamps": false,
+        "cacheBust": false
+    },
+    "xdsVersion": "2.1.0",
+    "xdsBuild": 678,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000498,
+    "framework": "touch21",
+    "topInstanceFileMap": {
+        "0b59c67a-3729-41cf-8a5d-9c1d15895da0": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
+        },
+        "0d546e12-f27a-4db6-b227-78c2a0a787d5": {
+            "paths": [
+                "metadata/view/mainView",
+                "z8remote/view/override/mainView.js",
+                "z8remote/view/mainView.js"
+            ],
+            "className": "mainView"
+        }
+    },
+    "viewOrderMap": {
+        "view": [
+            "0d546e12-f27a-4db6-b227-78c2a0a787d5"
+        ],
+        "store": [],
+        "controller": [],
+        "model": [],
+        "resource": [
+            "0b59c67a-3729-41cf-8a5d-9c1d15895da0"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

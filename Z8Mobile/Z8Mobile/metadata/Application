@@ -1,0 +1,17 @@
+{
+    "type": "application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "views": [
+            "mainView"
+        ],
+        "appFolder": "z8remote",
+        "name": "Z8Remote"
+    },
+    "id": "ExtBox1-ext-gen1774",
+    "designerId": "application"
+}
