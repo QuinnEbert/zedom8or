@@ -22,17 +22,22 @@ if (isset($_GET['tivobox'])) $tivobox = $_GET['tivobox'];
  *  CODE BELOW
  */
 
-require_once(dirname(__FILE__).'/Z8Config.php');
-if (!isset($primePi)) $primePi = false;
+require(dirname(__FILE__).'/Z8Config.php');
 require_once(dirname(__FILE__).'/irtFuncs.php');
-if ($primePi) {
-	ob_start();
-	$notUsed = lirc_get_remote_names();
-	ob_end_clean();
+
+function primeRPi() {
+	require(dirname(__FILE__).'/Z8Config.php');
+	if (!isset($primePi)) $primePi = false;
+	if ($primePi) {
+		ob_start();
+		$notUsed = lirc_get_remote_names();
+		ob_end_clean();
+	}
 }
 
 //FIXME: this was only originally meant for testing!
 if ( isset($_GET['VizioTV_GoVGA']) ) {
+	primeRPi();
 	ob_start();
 	system('irsend SEND_START BS_Vizio KEY_TRAIN');
 	sleep(1);
@@ -49,6 +54,7 @@ if ( isset($_GET['VizioTV_GoVGA']) ) {
 }
 //FIXME: this was only originally meant for testing!
 if ( isset($_GET['VizioTV_GoPioneer']) ) {
+	primeRPi();
 	ob_start();
 	system('irsend SEND_START BS_Vizio KEY_TRAIN');
 	sleep(1);
@@ -64,6 +70,7 @@ if ( isset($_GET['VizioTV_GoPioneer']) ) {
 	die("<vzTryOut>\n  <status>OK</status>\n</vzTryOut>\n");
 }
 if ( isset($_GET['VizioTV_GoTaKa']) ) {
+	primeRPi();
 	ob_start();
 	system('irsend SEND_START BS_Vizio KEY_TRAIN');
 	sleep(1);
@@ -80,6 +87,7 @@ if ( isset($_GET['VizioTV_GoTaKa']) ) {
 }
 //FIXME: this was only originally meant for testing!
 if ( isset($_GET['powerOff_VizioTV']) ) {
+	primeRPi();
 	ob_start();
 	system("irsend SEND_START 'BS_Vizio' 'KEY_POWER'");
 	sleep(3);
