@@ -1,0 +1,32 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "clearOnPageLoad": false,
+        "model": "confItem",
+        "storeId": "confData",
+        "designer|userClassName": "confData"
+    },
+    "designerId": "cb388d29-5d18-44bc-b40c-8047138a5793",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.LocalStorage",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "confLink",
+                "id": "confLink"
+            },
+            "designerId": "6c7143e7-2e27-4fc4-8472-801f13256f40"
+        }
+    ]
+}

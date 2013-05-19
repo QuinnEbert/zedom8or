@@ -1,17 +1,25 @@
 {
-    "type": "application",
+    "type": "Ext.app.Application",
     "reference": {
         "name": "items",
         "type": "array"
     },
     "codeClass": null,
     "userConfig": {
+        "models": [
+            "menuItem",
+            "confItem"
+        ],
+        "stores": [
+            "menuData",
+            "confData"
+        ],
         "views": [
-            "mainView"
+            "mainView",
+            "initView"
         ],
         "appFolder": "z8remote",
         "name": "Z8Remote"
     },
-    "id": "ExtBox1-ext-gen1774",
     "designerId": "application"
 }

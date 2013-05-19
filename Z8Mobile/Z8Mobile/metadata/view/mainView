@@ -1,33 +1,112 @@
 {
-    "type": "navigationview",
+    "type": "Ext.navigation.View",
     "reference": {
         "name": "items",
         "type": "array"
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "mainView",
-        "designer|userAlias": "mainView",
-        "designer|initialView": true,
         "id": "mainView",
-        "itemId": "mainView"
+        "itemId": "mainView",
+        "designer|userClassName": "mainView",
+        "designer|userAlias": "mainView"
     },
-    "id": "ExtBox1-ext-gen2815",
     "designerId": "0d546e12-f27a-4db6-b227-78c2a0a787d5",
     "cn": [
         {
-            "type": "navigationbar",
+            "type": "Ext.navigation.Bar",
             "reference": {
                 "name": "navigationBar",
                 "type": "object"
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyNavigationBar",
                 "id": "mainNavi",
                 "itemId": "mainNavi"
             },
             "designerId": "b4946cee-c4dd-43e1-b39c-fabca5763051"
+        },
+        {
+            "type": "Ext.dataview.List",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Z Remote",
+                "itemId": "mylist",
+                "margin": null,
+                "padding": null,
+                "ui": null,
+                "disableSelection": true,
+                "mode": null,
+                "store": "menuData",
+                "itemHeight": 50,
+                "refreshHeightOnUpdate": false,
+                "variableHeights": false
+            },
+            "designerId": "f14c22f2-aab0-46f6-b8a6-11ecbe27844d",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "itemTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "implHandler": [
+                            "<div style=\"font-size: 30px;\">{name}</div>"
+                        ],
+                        "designer|displayName": "itemTpl"
+                    },
+                    "designerId": "05a553f6-1637-4ef8-83e1-2cdb08945125"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onMylistItemSingletap",
+                        "implHandler": [
+                            "console.log('Z8: menu item tapped...');",
+                            "console.log('  ');",
+                            "console.log('  \"'+record.data.name+'\"');",
+                            "console.log('    ');",
+                            "",
+                            "if (record.data.name=='About the Zed Remote...') {",
+                            "    window.open('http://www.github.com/QuinnEbert/Zedom8or','_blank');",
+                            "} else if (record.data.name=='Created by Zed Tiger...') {",
+                            "    window.open('http://www.zedtiger.com/','_blank');",
+                            "}"
+                        ],
+                        "name": "itemsingletap"
+                    },
+                    "designerId": "3162cd9d-35b9-46d0-9495-43bc8f91dcf3"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onMainViewShow",
+                "implHandler": [
+                    "console.log('    ');",
+                    "console.log('Z8: welcome to Z Remote! ;)');",
+                    ""
+                ],
+                "name": "show"
+            },
+            "designerId": "a542e1b0-499f-4515-abfa-30083752b3b1"
         }
     ]
 }

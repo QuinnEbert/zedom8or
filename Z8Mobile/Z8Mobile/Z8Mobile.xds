@@ -7,20 +7,15 @@
         "sdkPath": "",
         "lineEnding": "LF",
         "genTimestamps": false,
-        "cacheBust": false
+        "cacheBust": true,
+        "buildShouldOverwriteIndex": true
     },
-    "xdsVersion": "2.1.0",
-    "xdsBuild": 678,
+    "xdsVersion": "2.2.2",
+    "xdsBuild": 971,
     "schemaVersion": 1,
-    "upgradeVersion": 210000000498,
+    "upgradeVersion": 210000000501,
     "framework": "touch21",
     "topInstanceFileMap": {
-        "0b59c67a-3729-41cf-8a5d-9c1d15895da0": {
-            "paths": [
-                "metadata/resource/Library"
-            ],
-            "className": "Library"
-        },
         "0d546e12-f27a-4db6-b227-78c2a0a787d5": {
             "paths": [
                 "metadata/view/mainView",
@@ -28,17 +23,70 @@
                 "z8remote/view/mainView.js"
             ],
             "className": "mainView"
+        },
+        "6da87e46-0745-4322-bbf2-3eb5394e5178": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
+        },
+        "6ed0a8a3-5d53-4360-9724-ca760d9d9d9a": {
+            "paths": [
+                "metadata/store/menuData",
+                "z8remote/store/override/menuData.js",
+                "z8remote/store/menuData.js"
+            ],
+            "className": "menuData"
+        },
+        "04f8be3f-1881-4fd9-99fb-22fdab39b7b2": {
+            "paths": [
+                "metadata/model/menuItem",
+                "z8remote/model/override/menuItem.js",
+                "z8remote/model/menuItem.js"
+            ],
+            "className": "menuItem"
+        },
+        "f46a7a07-9732-4d6d-9c1b-d7afc34ecb6e": {
+            "paths": [
+                "metadata/view/initView",
+                "z8remote/view/override/initView.js",
+                "z8remote/view/initView.js"
+            ],
+            "className": "initView"
+        },
+        "cb388d29-5d18-44bc-b40c-8047138a5793": {
+            "paths": [
+                "metadata/store/confData",
+                "z8remote/store/override/confData.js",
+                "z8remote/store/confData.js"
+            ],
+            "className": "confData"
+        },
+        "0e0cedcf-d107-4654-a518-a6714e3a681f": {
+            "paths": [
+                "metadata/model/confItem",
+                "z8remote/model/override/confItem.js",
+                "z8remote/model/confItem.js"
+            ],
+            "className": "confItem"
         }
     },
     "viewOrderMap": {
         "view": [
+            "f46a7a07-9732-4d6d-9c1b-d7afc34ecb6e",
             "0d546e12-f27a-4db6-b227-78c2a0a787d5"
         ],
-        "store": [],
+        "store": [
+            "6ed0a8a3-5d53-4360-9724-ca760d9d9d9a",
+            "cb388d29-5d18-44bc-b40c-8047138a5793"
+        ],
         "controller": [],
-        "model": [],
+        "model": [
+            "04f8be3f-1881-4fd9-99fb-22fdab39b7b2",
+            "0e0cedcf-d107-4654-a518-a6714e3a681f"
+        ],
         "resource": [
-            "0b59c67a-3729-41cf-8a5d-9c1d15895da0"
+            "6da87e46-0745-4322-bbf2-3eb5394e5178"
         ],
         "app": [
             "application"
