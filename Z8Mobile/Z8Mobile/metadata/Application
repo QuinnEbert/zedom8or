@@ -21,5 +21,85 @@
         "appFolder": "z8remote",
         "name": "Z8Remote"
     },
-    "designerId": "application"
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getConfigValueNamed",
+                "designer|params": [
+                    "named"
+                ],
+                "implHandler": [
+                    "var s = Ext.getStore('confData');",
+                    "var x = 0;",
+                    "var y = s.getCount();",
+                    "var key;",
+                    "while (x < y) {",
+                    "    key = s.getAt(x).get('key');",
+                    "    if (key == named) return s.getAt(x).get('value');",
+                    "    x = (x + 1);",
+                    "}",
+                    "return null;"
+                ]
+            },
+            "designerId": "38352919-660c-4a15-b287-6bdb707c9f49"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "delConfigValueNamed",
+                "designer|params": [
+                    "named"
+                ],
+                "implHandler": [
+                    "if (Z8Remote.app.getConfigValueNamed(named)!==null) {",
+                    "    var s = Ext.getStore('confData');",
+                    "    var x = 0;",
+                    "    var y = s.getCount();",
+                    "    var key;",
+                    "    while (x < y) {",
+                    "        key = s.getAt(x).get('key');",
+                    "        if (key == named) {",
+                    "            Ext.getStore('confData').removeAt(x);",
+                    "            return;",
+                    "        }",
+                    "        x = (x + 1);",
+                    "    }",
+                    "}"
+                ]
+            },
+            "designerId": "905aa51f-bd0e-44c9-b41d-d985f96a01e3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "setConfigValueNamed",
+                "designer|params": [
+                    "named",
+                    "value"
+                ],
+                "implHandler": [
+                    "Z8Remote.app.delConfigValueNamed(named);",
+                    "Ext.getStore('confData').add({key:named,value:value});"
+                ]
+            },
+            "designerId": "e9235235-20e5-48dc-b37b-930bd76a7959"
+        }
+    ]
 }

@@ -76,13 +76,6 @@ Ext.define('Z8Remote.view.initView', {
                         text: 'Continue'
                     }
                 ]
-            },
-            {
-                xtype: 'hiddenfield',
-                id: 'areFresh',
-                itemId: 'areFresh',
-                name: 'areFresh',
-                value: 1
             }
         ],
         listeners: [
@@ -104,48 +97,39 @@ Ext.define('Z8Remote.view.initView', {
         var x = 0;
         var y = (z.getCount()-1);
         var w = z.getCount();
-        console.log('    ');
-        console.log('    Check config:');
-        console.log('      '+w.toString()+' local storage items');
-        if ( w < 1 ) {
-            Ext.getStore('confData').add({key:'server',value:Ext.getCmp('myServer').getValue()});
-            Ext.getStore('confData').sync();
-        } else {
-            Ext.getStore('confData').remove(Ext.getStore('confData').getRange());
-            Ext.getStore('confData').sync();
-        }
-        console.log('    ');
-
+        Z8Remote.app.setConfigValueNamed('use_host',Ext.getCmp('myServer').getValue());
+        Ext.Viewport.setActiveItem('mainView');
     },
 
     onPanelShow: function(component, eOpts) {
         console.log('Z8: initView is showing...');
-        var z = Ext.getStore('confData');
-        var x = 0;
-        var y = (z.getCount()-1);
-        var w = z.getCount();
-        if (Ext.getCmp('areFresh').getValue()=='1') {
+        if (window.ztremote === undefined) {
+            window.ztremote = {areFresh: true};
+        }
+        if (window.ztremote.areFresh===true) {
             console.log('  ');
             console.log('  Fresh start-up of app >>>');
             console.log('    ');
             console.log('    Check config:');
-            console.log('      '+w.toString()+' local storage items');
-            if ( w < 1 ) {
+            if (Z8Remote.app.getConfigValueNamed('use_host')===null) {
+                console.log('      No host is configured!');
                 // Do nothing!
             } else {
+                console.log('      My host is configured!');
                 Ext.Viewport.setActiveItem('mainView');
             }
-            Ext.getCmp('areFresh').setValue('2');
+            window.ztremote.areFresh = false;
         } else {
             console.log('  ');
             console.log('  Showing as configuration interface >>>');
             console.log('    ');
             console.log('    Check config:');
-            console.log('      '+w.toString()+' local storage items');
-            if ( w < 1 ) {
+            if (Z8Remote.app.getConfigValueNamed('use_host')===null) {
+                console.log('      No host is configured!');
                 // Do nothing!
             } else {
-                Ext.getCmp('myServer').setValue(Ext.getStore('confData').getAt(0).get('value'));
+                console.log('      My host is configured!');
+                Ext.getCmp('myServer').setValue(Z8Remote.app.getConfigValueNamed('use_host'));
             }
         }
         console.log('    ');

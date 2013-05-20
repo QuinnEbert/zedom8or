@@ -35,10 +35,12 @@
             "codeClass": null,
             "userConfig": {
                 "title": "Z Remote",
-                "itemId": "mylist",
+                "id": "mainList",
+                "itemId": "mainList",
                 "margin": null,
                 "padding": null,
                 "ui": null,
+                "designer|displayName": "mainList",
                 "disableSelection": true,
                 "mode": null,
                 "store": "menuData",
@@ -71,7 +73,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fn": "onMylistItemSingletap",
+                        "fn": "onMainListItemSingletap",
                         "implHandler": [
                             "console.log('Z8: menu item tapped...');",
                             "console.log('  ');",
@@ -86,7 +88,7 @@
                         ],
                         "name": "itemsingletap"
                     },
-                    "designerId": "3162cd9d-35b9-46d0-9495-43bc8f91dcf3"
+                    "designerId": "4d156ef3-3c06-4ad6-8c1a-045b6dbd9b46"
                 }
             ]
         },

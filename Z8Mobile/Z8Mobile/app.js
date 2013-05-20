@@ -34,6 +34,41 @@ Ext.application({
     appFolder: 'z8remote',
     name: 'Z8Remote',
 
+    getConfigValueNamed: function(named) {
+        var s = Ext.getStore('confData');
+        var x = 0;
+        var y = s.getCount();
+        var key;
+        while (x < y) {
+            key = s.getAt(x).get('key');
+            if (key == named) return s.getAt(x).get('value');
+            x = (x + 1);
+        }
+        return null;
+    },
+
+    delConfigValueNamed: function(named) {
+        if (Z8Remote.app.getConfigValueNamed(named)!==null) {
+            var s = Ext.getStore('confData');
+            var x = 0;
+            var y = s.getCount();
+            var key;
+            while (x < y) {
+                key = s.getAt(x).get('key');
+                if (key == named) {
+                    Ext.getStore('confData').removeAt(x);
+                    return;
+                }
+                x = (x + 1);
+            }
+        }
+    },
+
+    setConfigValueNamed: function(named, value) {
+        Z8Remote.app.delConfigValueNamed(named);
+        Ext.getStore('confData').add({key:named,value:value});
+    },
+
     launch: function() {
 
         Ext.create('Z8Remote.view.initView', {fullscreen: true});
