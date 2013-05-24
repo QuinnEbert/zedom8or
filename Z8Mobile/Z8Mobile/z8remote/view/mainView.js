@@ -28,23 +28,23 @@ Ext.define('Z8Remote.view.mainView', {
             {
                 xtype: 'list',
                 title: 'Z Remote',
-                id: 'mainList',
-                itemId: 'mainList',
+                height: 107,
+                id: 'mainListInfoArea',
+                itemId: 'mainListInfoArea',
                 disableSelection: true,
                 itemTpl: [
-                    '<div style="font-size: 30px;">{name}</div>'
+                    '<div style="font-size: 22.5px;">{name}</div>'
                 ],
                 store: 'menuData',
                 itemHeight: 50,
-                refreshHeightOnUpdate: false,
-                variableHeights: false
+                refreshHeightOnUpdate: false
             }
         ],
         listeners: [
             {
-                fn: 'onMainListItemSingletap',
-                event: 'itemsingletap',
-                delegate: '#mainList'
+                fn: 'onMainListInfoAreaItemTap',
+                event: 'itemtap',
+                delegate: '#mainListInfoArea'
             },
             {
                 fn: 'onMainViewShow',
@@ -53,7 +53,7 @@ Ext.define('Z8Remote.view.mainView', {
         ]
     },
 
-    onMainListItemSingletap: function(dataview, index, target, record, e, eOpts) {
+    onMainListInfoAreaItemTap: function(dataview, index, target, record, e, eOpts) {
         console.log('Z8: menu item tapped...');
         console.log('  ');
         console.log('  "'+record.data.name+'"');

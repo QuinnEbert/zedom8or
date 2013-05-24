@@ -35,18 +35,18 @@
             "codeClass": null,
             "userConfig": {
                 "title": "Z Remote",
-                "id": "mainList",
-                "itemId": "mainList",
+                "height": 107,
+                "id": "mainListInfoArea",
+                "itemId": "mainListInfoArea",
                 "margin": null,
                 "padding": null,
                 "ui": null,
-                "designer|displayName": "mainList",
+                "designer|displayName": "mainListInfoArea",
                 "disableSelection": true,
                 "mode": null,
                 "store": "menuData",
                 "itemHeight": 50,
-                "refreshHeightOnUpdate": false,
-                "variableHeights": false
+                "refreshHeightOnUpdate": false
             },
             "designerId": "f14c22f2-aab0-46f6-b8a6-11ecbe27844d",
             "cn": [
@@ -59,7 +59,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "implHandler": [
-                            "<div style=\"font-size: 30px;\">{name}</div>"
+                            "<div style=\"font-size: 22.5px;\">{name}</div>"
                         ],
                         "designer|displayName": "itemTpl"
                     },
@@ -73,7 +73,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fn": "onMainListItemSingletap",
+                        "fn": "onMainListInfoAreaItemTap",
                         "implHandler": [
                             "console.log('Z8: menu item tapped...');",
                             "console.log('  ');",
@@ -86,9 +86,9 @@
                             "    window.open('http://www.zedtiger.com/','_blank');",
                             "}"
                         ],
-                        "name": "itemsingletap"
+                        "name": "itemtap"
                     },
-                    "designerId": "4d156ef3-3c06-4ad6-8c1a-045b6dbd9b46"
+                    "designerId": "7774d75d-c9f7-4dc5-a179-3d1f95837b26"
                 }
             ]
         },
