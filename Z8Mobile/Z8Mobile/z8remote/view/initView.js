@@ -18,6 +18,8 @@ Ext.define('Z8Remote.view.initView', {
     alias: 'widget.initView',
 
     config: {
+        id: 'initView',
+        itemId: 'initView',
         ui: 'dark',
         items: [
             {

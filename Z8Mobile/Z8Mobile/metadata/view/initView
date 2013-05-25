@@ -6,6 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
+        "id": "initView",
+        "itemId": "initView",
         "ui": "dark",
         "designer|userClassName": "initView",
         "designer|userAlias": "initView",

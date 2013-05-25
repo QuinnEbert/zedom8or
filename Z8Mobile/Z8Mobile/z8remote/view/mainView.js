@@ -21,26 +21,80 @@ Ext.define('Z8Remote.view.mainView', {
         id: 'mainView',
         itemId: 'mainView',
         navigationBar: {
+            docked: 'top',
             id: 'mainNavi',
-            itemId: 'mainNavi'
+            itemId: 'mainNavi',
+            items: [
+                {
+                    xtype: 'button',
+                    align: 'right',
+                    id: 'editConf',
+                    itemId: 'editConf',
+                    iconCls: 'settings',
+                    iconMask: true,
+                    text: ''
+                }
+            ]
         },
         items: [
             {
-                xtype: 'list',
+                xtype: 'container',
                 title: 'Z Remote',
-                height: 107,
-                id: 'mainListInfoArea',
-                itemId: 'mainListInfoArea',
-                disableSelection: true,
-                itemTpl: [
-                    '<div style="font-size: 22.5px;">{name}</div>'
-                ],
-                store: 'menuData',
-                itemHeight: 50,
-                refreshHeightOnUpdate: false
+                id: 'mainMenu',
+                itemId: 'mainMenu',
+                margin: '0 16 0 16',
+                scrollable: 'vertical',
+                items: [
+                    {
+                        xtype: 'container',
+                        height: 16,
+                        id: 'separator1',
+                        scrollable: false
+                    },
+                    {
+                        xtype: 'list',
+                        height: 100,
+                        id: 'mainListMenuArea',
+                        itemId: 'mainListMenuArea',
+                        scrollable: false,
+                        disableSelection: true,
+                        itemTpl: [
+                            '<div style="font-size: 22.5px;">{string}</div>'
+                        ],
+                        itemHeight: 50,
+                        refreshHeightOnUpdate: false,
+                        variableHeights: false
+                    },
+                    {
+                        xtype: 'container',
+                        height: 16,
+                        id: 'separator2',
+                        scrollable: false
+                    },
+                    {
+                        xtype: 'list',
+                        height: 100,
+                        id: 'mainListInfoArea',
+                        itemId: 'mainListInfoArea',
+                        scrollable: false,
+                        disableSelection: true,
+                        itemTpl: [
+                            '<div style="font-size: 22.5px;">{name}</div>'
+                        ],
+                        store: 'menuData',
+                        itemHeight: 50,
+                        refreshHeightOnUpdate: false,
+                        variableHeights: false
+                    }
+                ]
             }
         ],
         listeners: [
+            {
+                fn: 'onEditConfTap',
+                event: 'tap',
+                delegate: '#editConf'
+            },
             {
                 fn: 'onMainListInfoAreaItemTap',
                 event: 'itemtap',
@@ -51,6 +105,10 @@ Ext.define('Z8Remote.view.mainView', {
                 event: 'show'
             }
         ]
+    },
+
+    onEditConfTap: function(button, e, eOpts) {
+        Ext.Viewport.setActiveItem('initView');
     },
 
     onMainListInfoAreaItemTap: function(dataview, index, target, record, e, eOpts) {
