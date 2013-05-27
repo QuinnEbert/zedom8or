@@ -19,23 +19,14 @@
 
 - (void)measurer:(NSTimer *)timer
 {
-    //NSLog(@" ?? Measuring levels (pFrames %i)!",pFrames);
     if ([self.recorder isRecording]) {
         if (pFrames==5) {
-            //NSLog(@" !! average: %i",avgHear);
             avgHear = 0;
         }
         [self.recorder updateMeters];
         int vDisplay = (65-abs((int)[self.recorder averagePowerForChannel:0]));
         vDisplay = MIN(80,vDisplay);
         vDisplay = MAX(vDisplay,01);
-        /*NSString *outText = @"";
-        int aCounter = 0;
-        while (aCounter < vDisplay) {
-            outText = [outText stringByAppendingString:@"*"];
-            aCounter++;
-        }
-        NSLog(@"%@",outText);*/
         if (!pFrames) {
             avgHear = vDisplay;
         } else {
@@ -43,9 +34,9 @@
         }
         pFrames++;
         if (pFrames>5) {
-            //NSLog(@" ?? avg: %i, prv: %i",avgHear,lastAvg);
             if (!lastAvg) {
-                //NSLog(@" ** Warm-up completed!");
+                // The initial "fill" pass of calibration completed,
+                // do nothing for now...
             } else {
                 if (avgHear>lastAvg&&avgHear-lastAvg>=10) {
                     NSLog(@" !! Significant increase! (avg: %i, prv: %i)",avgHear,lastAvg);
@@ -75,6 +66,9 @@
     [self.recorder setMeteringEnabled:YES];
     [self.recorder record];
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(measurer:) userInfo:nil repeats:YES];
+    if (timer) {
+        // Do nothing besides silence the compiler warnings... ;)
+    }
 }
 
 @end
