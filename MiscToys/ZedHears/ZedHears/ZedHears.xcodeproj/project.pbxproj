@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E45ED20D1753AED90066C142 /* TelnetZH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E45ED20A1753A91C0066C142 /* TelnetZH.cpp */; };
 		E4D1C1E917503D6A005AAC90 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D1C1E817503D6A005AAC90 /* Cocoa.framework */; };
 		E4D1C1F317503D6A005AAC90 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E4D1C1F117503D6A005AAC90 /* InfoPlist.strings */; };
 		E4D1C1F517503D6A005AAC90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D1C1F417503D6A005AAC90 /* main.m */; };
 		E4D1C1F917503D6A005AAC90 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E4D1C1F717503D6A005AAC90 /* Credits.rtf */; };
-		E4D1C1FC17503D6A005AAC90 /* ZedHearsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D1C1FB17503D6A005AAC90 /* ZedHearsAppDelegate.m */; };
+		E4D1C1FC17503D6A005AAC90 /* ZedHearsAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4D1C1FB17503D6A005AAC90 /* ZedHearsAppDelegate.mm */; };
 		E4D1C1FF17503D6A005AAC90 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D1C1FD17503D6A005AAC90 /* MainMenu.xib */; };
 		E4D1C20617503DFA005AAC90 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D1C20517503DFA005AAC90 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E45ED20A1753A91C0066C142 /* TelnetZH.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = TelnetZH.cpp; sourceTree = "<group>"; };
+		E45ED20B1753A91D0066C142 /* TelnetZH.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = TelnetZH.h; sourceTree = "<group>"; };
 		E4D1C1E517503D6A005AAC90 /* ZedHears.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZedHears.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D1C1E817503D6A005AAC90 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E4D1C1EB17503D6A005AAC90 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -28,7 +31,7 @@
 		E4D1C1F617503D6A005AAC90 /* ZedHears-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZedHears-Prefix.pch"; sourceTree = "<group>"; };
 		E4D1C1F817503D6A005AAC90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		E4D1C1FA17503D6A005AAC90 /* ZedHearsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZedHearsAppDelegate.h; sourceTree = "<group>"; };
-		E4D1C1FB17503D6A005AAC90 /* ZedHearsAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZedHearsAppDelegate.m; sourceTree = "<group>"; };
+		E4D1C1FB17503D6A005AAC90 /* ZedHearsAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ZedHearsAppDelegate.mm; sourceTree = "<group>"; };
 		E4D1C1FE17503D6A005AAC90 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		E4D1C20517503DFA005AAC90 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -49,7 +52,6 @@
 		E4D1C1DC17503D6A005AAC90 = {
 			isa = PBXGroup;
 			children = (
-				E4D1C20517503DFA005AAC90 /* AVFoundation.framework */,
 				E4D1C1EE17503D6A005AAC90 /* ZedHears */,
 				E4D1C1E717503D6A005AAC90 /* Frameworks */,
 				E4D1C1E617503D6A005AAC90 /* Products */,
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				E4D1C1E817503D6A005AAC90 /* Cocoa.framework */,
+				E4D1C20517503DFA005AAC90 /* AVFoundation.framework */,
 				E4D1C1EA17503D6A005AAC90 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -87,7 +90,9 @@
 			isa = PBXGroup;
 			children = (
 				E4D1C1FA17503D6A005AAC90 /* ZedHearsAppDelegate.h */,
-				E4D1C1FB17503D6A005AAC90 /* ZedHearsAppDelegate.m */,
+				E4D1C1FB17503D6A005AAC90 /* ZedHearsAppDelegate.mm */,
+				E45ED20B1753A91D0066C142 /* TelnetZH.h */,
+				E45ED20A1753A91C0066C142 /* TelnetZH.cpp */,
 				E4D1C1FD17503D6A005AAC90 /* MainMenu.xib */,
 				E4D1C1EF17503D6A005AAC90 /* Supporting Files */,
 			);
@@ -172,7 +177,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4D1C1F517503D6A005AAC90 /* main.m in Sources */,
-				E4D1C1FC17503D6A005AAC90 /* ZedHearsAppDelegate.m in Sources */,
+				E4D1C1FC17503D6A005AAC90 /* ZedHearsAppDelegate.mm in Sources */,
+				E45ED20D1753AED90066C142 /* TelnetZH.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +314,7 @@
 				E4D1C20417503D6A005AAC90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

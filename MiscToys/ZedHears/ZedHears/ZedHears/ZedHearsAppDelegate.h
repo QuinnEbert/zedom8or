@@ -17,13 +17,26 @@
 
 #import <AVFoundation/AVAudioRecorder.h>
 
+#define APP_MODE_LEVELS 0        // No-action mode, outputs audio levels only
+#define APP_MODE_SIMPLE 1        // Second-by-second level analysis, action based on 5-second averages
+#define APP_MODE_NORMAL 2        // Better analysis, 1-minute "rounds," each calibrates/maintains 15-second average
+
+#define APP_MODE APP_MODE_NORMAL // <=== SELECT YOUR MODE
+
+#define APP_MODE_NORMAL_SAFETY 5 // Set the (approx.) "grace" (in volume level settings) ignored by normal mode checks
+
 @interface ZedHearsAppDelegate : NSObject <NSApplicationDelegate> {
     int pFrames;
     int avgHear;
     int lastAvg;
+    int cFrames;
+    int caliAvg;
+    NSURL *fileURL;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic,strong) AVAudioRecorder *recorder;
+
+@property (strong, retain) NSURL *fileURL;
 
 @end
