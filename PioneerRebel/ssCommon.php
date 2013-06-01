@@ -38,6 +38,12 @@ if (isset($_GET['volUp'])) {
 	pvRebel_setVolInc($pioneer);
 	die("<pioneer_rebel>\n  <status>OK</status>\n</pioneer_rebel>\n");
 }
+if (isset($_GET['volLv'])) {
+	require_once(dirname(__FILE__).'/pioneer.lib.php');
+	header('Content-Type: text/xml');
+	pvRebel_setVolSet($pioneer,intval($_GET['Lv']));
+	die("<pioneer_rebel>\n  <status>OK</status>\n</pioneer_rebel>\n");
+}
 if (isset($_GET['input'])) {
 	require_once(dirname(__FILE__).'/pioneer.lib.php');
 	header('Content-Type: text/xml');

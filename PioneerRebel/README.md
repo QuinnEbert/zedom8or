@@ -20,7 +20,7 @@ What's Currently Planned
 Software Disclaimer
 ===================
 
-"Pioneer Rebel" is a software project wholly unaffiliated with Pioneer Electronics.  In no way is "Pioneer Rebel" authorized, supported, acknowledged, or endorsed by Pioneer Electronics.  FURTHERMORE, you use this software project AT YOUR OWN RISK.  The possibility indeed exists that bugs exist in this software which could lead to catastrophic failure of your Pioneer Electronics equipment.  In no event shall Quinn Ebert or Pioneer Electronics be held in any way liable for malfunction, damage, or destruction to your personal property (including but not limited to personal property created and/or manufactured by Pioneer Electronics) arising from your use of (or failure to use) this project.
+"Pioneer Rebel" is a software project wholly unaffiliated with Pioneer Electronics.  In no way is "Pioneer Rebel" authorized, supported, acknowledged, or endorsed by Pioneer Electronics.  FURTHERMORE, you use this software project AT YOUR OWN RISK.  The possibility indeed exists that bugs exist in this software which could lead to catastrophic failure of your Pioneer Electronics equipment.  In no event shall Quinn Ebert or Pioneer Electronics be held in any way liable for malfunction, damage, or destruction to yourself or your personal property (including but not limited to personal property created and/or manufactured by Pioneer Electronics) arising from your use of (or failure to use) it.
 
 Disclaimer Addendum
 ===================

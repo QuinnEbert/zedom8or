@@ -16,14 +16,14 @@
 	 * that bugs exist in this software which could lead to catastrophic
 	 * failure of your Pioneer Electronics equipment.  In no event shall Quinn
 	 * Ebert or Pioneer Electronics be held in any way liable for malfunction,
-	 * damage, or destruction to your personal property (including but not
-	 * limited to personal property created and/or manufactured by Pioneer
-	 * Electronics) arising from your use of (or failure to use) this project.
+	 * damage, or destruction to yourself or your personal property (including
+	 * but not limited to personal property created and/or manufactured by
+	 * Pioneer Electronics) arising from your use of (or failure to use) it.
 	 */
 	
 	// Send a command, with optional prefixed or suffixed parameter, to the 1022-K
 	// Returns corresponding controller response on OK or false (boolean) on error
-	function pvRebel_SEND_CMD($address,$command='PO',$parameter=false,$param_first=true) {
+	function pvRebel_SEND_CMD($address,$command='PO',$parameter=false,$param_first=true,$numSend=1) {
 		$fp = fsockopen($address, 8102, $errno, $errstr, 30);
 		if (!$fp) {
 			echo __FUNCTION__."() ERROR: $errstr ($errno), planned command was \"$command\"!\n";
@@ -40,14 +40,33 @@
 				}
 			}
 			$cmd .= "\r\n";
-			fwrite($fp, $cmd);
-			$out = fgets($fp);
+			$out = '';
+			for ($counter = 0; $counter < $numSend; $counter++) {
+				fwrite($fp, $cmd);
+				$out .= fgets($fp);
+				$out .= "\n";
+				usleep(250000);
+			}
 			fclose($fp);
 			// Cool-down time (my VSX preferred 100ms between reconnects...)
 			usleep(100000);
 			return $out;
 		}
 		return false;
+	}
+	// Send comamnds to the 1022-K amp unit to *effectively* set Volume Level
+	// setting $setting (number divisible by two *or* equals zero) by way of:
+	//   1. Get current volume setting
+	//   2. Increase or decrease as needed relatively
+	function pvRebel_setVolSet($address,$setting) {
+		$compare = pvRebel_getVolVal($address);
+		if ($setting!=$compare) {
+			if ($setting < $compare) {
+				pvRebel_SEND_CMD($address,'VD',false,true,($compare-$setting));
+			} else {
+				pvRebel_SEND_CMD($address,'VU',false,true,($setting-$compare));
+			}
+		}
 	}
 	// Send a command to the 1022-K amp unit requesting the volume level decrement
 	function pvRebel_setVolDec($address) {

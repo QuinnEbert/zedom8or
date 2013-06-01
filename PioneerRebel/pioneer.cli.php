@@ -11,9 +11,9 @@
 	 * that bugs exist in this software which could lead to catastrophic
 	 * failure of your Pioneer Electronics equipment.  In no event shall Quinn
 	 * Ebert or Pioneer Electronics be held in any way liable for malfunction,
-	 * damage, or destruction to your personal property (including but not
-	 * limited to personal property created and/or manufactured by Pioneer
-	 * Electronics) arising from your use of (or failure to use) this project.
+	 * damage, or destruction to yourself or your personal property (including
+	 * but not limited to personal property created and/or manufactured by
+	 * Pioneer Electronics) arising from your use of (or failure to use) it.
 	 */
 	
 	require 'pioneer.lib.php';
@@ -33,4 +33,5 @@
 		}
 	}*/
 	//echo("$olD\n");
+	//pvRebel_setVolSet('192.168.1.Xyz',60);
 ?>

@@ -17,6 +17,15 @@ require_once($ourFile);
 		xmlhttp.open("GET","<?php echo( $ourFile . '?pioneer='.$pioneer.'&muted=' ); ?>"+setMuted,false);
 		xmlhttp.send();
 	}
+	function pvRebel_setVolLev() {
+		if (window.XMLHttpRequest) {
+			xmlhttp=new XMLHttpRequest();
+		} else {
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.open("GET","<?php echo( $ourFile . '?volLv&pioneer='.$pioneer ); ?>&Lv="+document.getElementById('VolumeTo').value,true);
+		xmlhttp.send();
+	}
 	function pvRebel_setVolDec() {
 		if (window.XMLHttpRequest) {
 			xmlhttp=new XMLHttpRequest();
@@ -43,6 +52,15 @@ require_once($ourFile);
 	<input type="button" onClick="pvRebel_setVolInc()" name="Volume Up" value="Volume Up" /><br />
 	<input type="button" onClick="pvRebel_setMuting('0')" name="Muting Off" value="Muting Off" />
 	<input type="button" onClick="pvRebel_setMuting('1')" name="Muting On" value="Muting On" />
+	<br />
+	<select name="VolumeTo" id="VolumeTo">
+	<?php
+	for ($counter = 0; $counter <= 80; $counter++) {
+		echo("<option value=\"".strval($counter)."\">".strval($counter)."</option>");
+	}
+	?>
+	</select>
+	<input type="button" onClick="pvRebel_setVolLevel()" name="Set Volume" value="Set Volume" />
 </p></td></tr>
 </table>
 <?php
