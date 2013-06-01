@@ -25,12 +25,16 @@
 
 #define APP_MODE_NORMAL_SAFETY 5 // Set the (approx.) "grace" (in volume level settings) ignored by normal mode checks
 
+#define VSX_1022_K_HOSTNAME "192.168.1.Xyz"
+
 @interface ZedHearsAppDelegate : NSObject <NSApplicationDelegate> {
     int pFrames;
     int avgHear;
     int lastAvg;
     int cFrames;
     int caliAvg;
+    long preVol;
+    long curVol;
     NSURL *fileURL;
 }
 

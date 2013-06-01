@@ -22,6 +22,8 @@
 
 void VolumeDn(char *hostname);
 void VolumeUp(char *hostname);
-void send_cmd(int argc, char **argv);
+long VolumePct(char *hostname);
+int VolumeVal(char *hostname);
+void send_cmd(int argc, char **argv, char *ret);
 
 //#endif /* defined(__ZedHears__TelnetZH__) */

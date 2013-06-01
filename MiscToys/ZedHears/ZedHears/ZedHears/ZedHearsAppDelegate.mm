@@ -85,7 +85,7 @@
                                 } else {
                                     // The margins are safe, dip the volume down a notch:
                                     NSLog(@" .. Decreasing volume a bit...");
-                                    VolumeDn((char *)"192.168.1.17");
+                                    VolumeDn((char *)VSX_1022_K_HOSTNAME);
                                 }
                             }
                         } else if (lastAvg>avgHear&&lastAvg-avgHear>=10) {
@@ -98,40 +98,48 @@
                                 } else {
                                     // The margins are safe, kick the volume up a notch:
                                     NSLog(@" .. Increasing volume a bit...");
-                                    VolumeUp((char *)"192.168.1.17");
+                                    VolumeUp((char *)VSX_1022_K_HOSTNAME);
                                 }
                             }
                         }
                     } else if (APP_MODE == APP_MODE_NORMAL) {
-                        NSLog(@" !! Normal mode observes a %i average, for comparison",avgHear);
-                        // Normal mode, calibration-targeted adjustment:
-                        if (avgHear>caliAvg&&avgHear-caliAvg>=APP_MODE_NORMAL_SAFETY) {
-                            if (APP_MODE >= APP_MODE_SIMPLE) { //FIXME: overkill?
-                                // Saw a significant increase, increase the receiver volume?
-                                if (avgHear <= 30) {
-                                    // We will decrement a bit *ONLY* if avgHear is more than 30,
-                                    // this avoids us silencing things perhaps a bit too much:
-                                    NSLog(@" !! Hit volume safety margin, won't decrease the volume...");
-                                } else {
-                                    // The margins are safe, dip the volume down a notch:
-                                    NSLog(@" .. Decreasing volume a bit...");
-                                    VolumeDn((char *)"192.168.1.17");
+                        // Normal mode, store current volume setting from receiver:
+                        curVol = VolumePct((char *)VSX_1022_K_HOSTNAME);
+                        // We only perform calibration-targeted adjustment if the
+                        // volume level remains unchanged (except by AVC action):
+                        if (curVol==preVol) {
+                            // Perform calibration-targeted adjustment:
+                            if (avgHear>caliAvg&&avgHear-caliAvg>=APP_MODE_NORMAL_SAFETY) {
+                                if (APP_MODE >= APP_MODE_SIMPLE) { //FIXME: overkill?
+                                    // Saw a significant increase, increase the receiver volume?
+                                    if (avgHear <= 30) {
+                                        // We will decrement a bit *ONLY* if avgHear is more than 30,
+                                        // this avoids us silencing things perhaps a bit too much:
+                                        NSLog(@" !! Hit volume safety margin, won't decrease the volume...");
+                                    } else {
+                                        // The margins are safe, dip the volume down a notch:
+                                        NSLog(@" .. Decreasing volume a bit...");
+                                        VolumeDn((char *)VSX_1022_K_HOSTNAME);
+                                    }
+                                }
+                            } else if (caliAvg>avgHear&&caliAvg-avgHear>=APP_MODE_NORMAL_SAFETY) {
+                                if (APP_MODE >= APP_MODE_SIMPLE) { //FIXME: overkill?
+                                    // Saw a significant decrease, increase the receiver volume?
+                                    if (avgHear >= 50) {
+                                        // We will increment a bit *ONLY* if avgHear is less than 60,
+                                        // this avoids us flying off the handle and hurting our ears:
+                                        NSLog(@" !! Hit volume safety margin, won't increase the volume...");
+                                    } else {
+                                        // The margins are safe, kick the volume up a notch:
+                                        NSLog(@" .. Increasing volume a bit...");
+                                        VolumeUp((char *)VSX_1022_K_HOSTNAME);
+                                    }
                                 }
                             }
-                        } else if (caliAvg>avgHear&&caliAvg-avgHear>=APP_MODE_NORMAL_SAFETY) {
-                            if (APP_MODE >= APP_MODE_SIMPLE) { //FIXME: overkill?
-                                // Saw a significant decrease, increase the receiver volume?
-                                if (avgHear >= 50) {
-                                    // We will increment a bit *ONLY* if avgHear is less than 60,
-                                    // this avoids us flying off the handle and hurting our ears:
-                                    NSLog(@" !! Hit volume safety margin, won't increase the volume...");
-                                } else {
-                                    // The margins are safe, kick the volume up a notch:
-                                    NSLog(@" .. Increasing volume a bit...");
-                                    VolumeUp((char *)"192.168.1.17");
-                                }
-                            }
+                        } else {
+                            NSLog(@" !! User changed volume, remember, keep analyzing...");
                         }
+                        preVol = curVol;
                     }
                 }
                 if (APP_MODE == APP_MODE_LEVELS) {
@@ -197,6 +205,8 @@
     lastAvg = 0;
     cFrames = 0;
     caliAvg = 0;
+    preVol = -1;
+    curVol = -1;
     [self resetRecorder];
     // Create, schedule, and start a timer for sampling and analysis:
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(measurer:) userInfo:nil repeats:YES];
