@@ -60,7 +60,7 @@ require_once($ourFile);
 	}
 	?>
 	</select>
-	<input type="button" onClick="pvRebel_setVolLevel()" name="Set Volume" value="Set Volume" />
+	<input type="button" onClick="pvRebel_setVolLev()" name="Set Volume" value="Set Volume" />
 </p></td></tr>
 </table>
 <?php
