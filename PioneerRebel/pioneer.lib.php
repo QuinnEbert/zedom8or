@@ -159,6 +159,7 @@
 		$inNames["FN41"] = "PANDORA";
 		$inNames["FN44"] = "M.SERVER";
 		$inNames["FN45"] = "FAVORITE";
+		$inNames["FN46"] = "AIRPLAY";
 		$out = pvRebel_SEND_CMD($address,'?FN');
 		if (! $out) return false;
 		$val = trim($out);
