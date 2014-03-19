@@ -96,4 +96,16 @@ if ( isset($_GET['powerOff_VizioTV']) ) {
 	header('Content-Type: text/xml');
 	die("<vzTryOut>\n  <status>OK</status>\n</vzTryOut>\n");
 }
+//FIXME: this was only originally meant for testing!
+if ( isset($_GET['powerOff_ViewsonicTV']) ) {
+	primeRPi();
+	ob_start();
+	system("irsend SEND_START 'vsdlpprj' 'KEY_POWER'");
+	// The PJD7820HD seems to do best with a .25 second powerkey pulse from LIRC
+	usleep(250000);
+	system("irsend SEND_STOP 'vsdlpprj' 'KEY_POWER'");
+	ob_end_clean();
+	header('Content-Type: text/xml');
+	die("<vzTryOut>\n  <status>OK</status>\n</vzTryOut>\n");
+}
 ?>
