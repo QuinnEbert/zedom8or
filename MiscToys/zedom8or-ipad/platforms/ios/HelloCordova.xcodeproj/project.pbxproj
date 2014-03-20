@@ -508,7 +508,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = HelloCordova;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
@@ -540,7 +540,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = HelloCordova;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
