@@ -18,7 +18,7 @@ $ourFile = basename(__FILE__);
 <html>
 <head>
 	<title>Pioneer Remote</title>
-	<script type="text/javascript" src="csCommon.php"></script>
+	<script type="text/javascript" src="csCommon.php?ourFile=<?php echo($ourFile); ?>"></script>
 	<style type="text/css">
 		html {
 			background-color: #333;
@@ -53,7 +53,7 @@ $ourFile = basename(__FILE__);
 	</style>
 </head>
 <body>
-	<table width="100%" height="80%" border="0" cellspacing="0" cellpadding="0">
+	<table width="100%" height="94%" border="0" cellspacing="0" cellpadding="0">
 		<tr>
 			<td width="33%" valign="middle" align="center">
 				<div onClick="pvRebel_setSource('04')">DVD</div>
@@ -73,7 +73,7 @@ $ourFile = basename(__FILE__);
 				<div onClick="pvRebel_setPower('1')" id="powerUpButton" class="midpageColumn">On</div>
 			</td>
 			<td width="33%" valign="middle" align="center">
-				<div onClick="pvRebel_setSource('49')">Game Console</div>
+				<div onClick="pvRebel_setSource('49')">Game Sys.</div>
 			</td>
 		</tr>
 		<tr>

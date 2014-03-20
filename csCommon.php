@@ -1,3 +1,4 @@
+<?php $ourFile = $_GET['ourFile']; ?>
 		function pvRebel_setSource(fnInput) {
 			if (window.XMLHttpRequest) {
 				xmlhttp=new XMLHttpRequest();
