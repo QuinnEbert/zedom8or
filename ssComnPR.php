@@ -53,7 +53,18 @@ if (isset($_GET['input'])) {
 if (isset($_GET['power'])) {
 	require_once(dirname(__FILE__).'/PioneerRebel/pioneer.lib.php');
 	header('Content-Type: text/xml');
+
+	/*...*/
+	//FIXME: for Quinn mainly...
 	pvRebel_setPower($pioneer,intval($_GET['power']));
+	ob_start();
+	system("irsend SEND_START 'vsdlpprj' 'KEY_POWER'");
+	// The PJD7820HD seems to do best with a .25 second powerkey pulse from LIRC
+	usleep(250000);
+	system("irsend SEND_STOP 'vsdlpprj' 'KEY_POWER'");
+	ob_end_clean();
+	/*...*/
+
 	die("<pioneer_rebel>\n  <status>OK</status>\n</pioneer_rebel>\n");
 }
 if (isset($_GET['muted'])) {
