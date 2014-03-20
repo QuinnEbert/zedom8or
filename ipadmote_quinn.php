@@ -89,7 +89,8 @@ $ourFile = basename(__FILE__);
 				<div onClick="pvRebel_setSource('05')" class="midpageColumn">TV</div>
 			</td>
 			<td width="33%" valign="middle" align="center">
-				<div onClick="pvRebel_setSource('10')">Video In</div>
+				<!-- Not on my VSX-1023K there's not... ;) -->
+				<!-- <div onClick="pvRebel_setSource('10')">Video In</div> -->
 			</td>
 		</tr>
 	</table>
