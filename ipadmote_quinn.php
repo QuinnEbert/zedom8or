@@ -8,7 +8,7 @@
    web browser.
  -->
 <?php
-require_once(dirname(__FILE__).'/ssCommon.php');
+require_once(dirname(__FILE__).'/ssComnPR.php');
 
 // Save this -- JS code needs it server-side integrated:
 $ourFile = basename(__FILE__);
