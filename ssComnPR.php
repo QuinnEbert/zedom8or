@@ -25,6 +25,18 @@ if (isset($_GET['pioneer'])) $pioneer = $_GET['pioneer'];
 //   false : confirmation alert won't display
 $confirm = true;
 
+if (!function_exists('primeRPi')) {
+	function primeRPi() {
+		require(dirname(__FILE__).'/Z8Config.php');
+		if (!isset($primePi)) $primePi = false;
+		if ($primePi) {
+			ob_start();
+			$notUsed = lirc_get_remote_names();
+			ob_end_clean();
+		}
+	}
+}
+
 // Handling code for Ajax button requests:
 if (isset($_GET['volDn'])) {
 	require_once(dirname(__FILE__).'/PioneerRebel/pioneer.lib.php');
@@ -51,12 +63,9 @@ if (isset($_GET['input'])) {
 	die("<pioneer_rebel>\n  <status>OK</status>\n</pioneer_rebel>\n");
 }
 if (isset($_GET['power'])) {
-	require_once(dirname(__FILE__).'/PioneerRebel/pioneer.lib.php');
-	header('Content-Type: text/xml');
-
 	/*...*/
 	//FIXME: for Quinn mainly...
-	pvRebel_setPower($pioneer,intval($_GET['power']));
+	primeRPi();
 	ob_start();
 	system("irsend SEND_START 'vsdlpprj' 'KEY_POWER'");
 	// The PJD7820HD seems to do best with a .25 second powerkey pulse from LIRC
@@ -64,7 +73,10 @@ if (isset($_GET['power'])) {
 	system("irsend SEND_STOP 'vsdlpprj' 'KEY_POWER'");
 	ob_end_clean();
 	/*...*/
-
+	
+	require_once(dirname(__FILE__).'/PioneerRebel/pioneer.lib.php');
+	header('Content-Type: text/xml');
+	pvRebel_setPower($pioneer,intval($_GET['power']));
 	die("<pioneer_rebel>\n  <status>OK</status>\n</pioneer_rebel>\n");
 }
 if (isset($_GET['muted'])) {

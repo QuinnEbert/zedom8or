@@ -25,13 +25,15 @@ if (isset($_GET['tivobox'])) $tivobox = $_GET['tivobox'];
 require(dirname(__FILE__).'/Z8Config.php');
 require_once(dirname(__FILE__).'/irtFuncs.php');
 
-function primeRPi() {
-	require(dirname(__FILE__).'/Z8Config.php');
-	if (!isset($primePi)) $primePi = false;
-	if ($primePi) {
-		ob_start();
-		$notUsed = lirc_get_remote_names();
-		ob_end_clean();
+if (!function_exists('primeRPi')) {
+	function primeRPi() {
+		require(dirname(__FILE__).'/Z8Config.php');
+		if (!isset($primePi)) $primePi = false;
+		if ($primePi) {
+			ob_start();
+			$notUsed = lirc_get_remote_names();
+			ob_end_clean();
+		}
 	}
 }
 
