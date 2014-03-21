@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9DC49238-160D-4E3F-9EE8-3BFD7B8262CC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ZedHears</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DE2690A3-4A2E-46F0-BB92-693090822646</key>
+		<string>ssh://github.com/QuinnEbert/zedom8or.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MiscToys/ZedHears/ZedHears/ZedHears.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DE2690A3-4A2E-46F0-BB92-693090822646</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/QuinnEbert/zedom8or.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DE2690A3-4A2E-46F0-BB92-693090822646</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DE2690A3-4A2E-46F0-BB92-693090822646</string>
+			<key>IDESourceControlWCCName</key>
+			<string>zedom8or</string>
+		</dict>
+	</array>
+</dict>
+</plist>
