@@ -1,0 +1,18 @@
+Add the following lines to your header (the .h file). Under the imports at the very top:
+<pre>
+#import &lt;OpenEars/OpenEarsEventsObserver.h&gt;
+</pre>
+at the @interface declaration, add the OpenEarsEventsObserverDelegate inheritance. 
+
+An example of this for a view controller called ViewController would look like this:
+<pre>
+@interface ViewController : UIViewController &lt;OpenEarsEventsObserverDelegate&gt {
+</pre>
+In the middle part where instance variables go:
+<pre>
+OpenEarsEventsObserver *openEarsEventsObserver;
+</pre>
+In the bottom part where class properties go:
+<pre>
+@property (strong, nonatomic) OpenEarsEventsObserver *openEarsEventsObserver;
+</pre>

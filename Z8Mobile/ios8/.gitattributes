@@ -1,0 +1,15 @@
+build/ export-ignore
+.DS_Store export-ignore
+*.pbxuser export-ignore
+*.mode2v3 export-ignore
+*.mode1v3 export-ignore
+*.perspectivev* export-ignore
+*.perspective export-ignore
+*.swp export-ignore
+*~.nib export-ignore
+*xcuserdata* export-ignore
+*project.xcworkspace* export-ignore
+*.xccheckout export-ignore
+*.xcuserstate export-ignore
+*.o export-ignore
+*.pyc export-ignore

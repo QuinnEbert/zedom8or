@@ -1,0 +1,5 @@
+In the method where you want to recognize speech (to test this out, add it to your viewDidLoad method), add the following method call:
+<pre>
+[self.pocketsphinxController startListeningWithLanguageModelAtPath:lmPath dictionaryAtPath:dicPath acousticModelAtPath:[AcousticModel pathToModel:@"AcousticModelEnglish"] languageModelIsJSGF:NO]; // Change "AcousticModelEnglish" to "AcousticModelSpanish" to perform Spanish recognition instead of English.
+
+</pre>

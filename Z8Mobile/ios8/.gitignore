@@ -1,0 +1,14 @@
+**/build/
+**/Build/
+**/build
+**/Build
+**/.DS_Store
+*.swp
+*~.nib
+*.o
+*.pyc
+OpenEars/OpenEars.xcodeproj/project.xcworkspace/xcuserdata/*
+OpenEarsSampleApp/OpenEarsSampleApp.xcodeproj/project.xcworkspace/xcuserdata/*
+/OpenEars/OpenEars.xcodeproj/project.xcworkspace/xcshareddata/OpenEars.xccheckout
+
+/OpenEarsSampleApp/OpenEarsSampleApp.xcodeproj/project.xcworkspace/xcshareddata/

@@ -1,0 +1,25 @@
+Add the following to your implementation (the .m file):
+
+Under the @implementation keyword at the top:
+<pre>
+@synthesize fliteController;
+@synthesize slt;
+</pre>
+
+Among the other methods of the class, add these lazy accessor methods for confident memory management of the object:
+
+<pre>
+- (FliteController *)fliteController {
+	if (fliteController == nil) {
+		fliteController = [[FliteController alloc] init];
+	}
+	return fliteController;
+}
+
+- (Slt *)slt {
+	if (slt == nil) {
+		slt = [[Slt alloc] init];
+	}
+	return slt;
+}
+</pre>

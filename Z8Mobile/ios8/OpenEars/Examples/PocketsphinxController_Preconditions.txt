@@ -1,0 +1,1 @@
+<p>To use PocketsphinxController, you need a language model and a phonetic dictionary for it. These files define which words PocketsphinxController is capable of recognizing. They are created above by using LanguageModelGenerator. You also need an acoustic model. OpenEars ships with an English and a Spanish acoustic model.</p>

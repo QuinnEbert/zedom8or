@@ -1,0 +1,4 @@
+In the method where you want to call speech (to test this out, add it to your viewDidLoad method), add the following method call:
+<pre>
+[self.fliteController say:@"A short statement" withVoice:self.slt];
+</pre>

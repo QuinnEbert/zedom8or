@@ -1,0 +1,17 @@
+Add the following to your implementation (the .m file):
+
+Under the @implementation keyword at the top:
+<pre>
+@synthesize pocketsphinxController;
+</pre>
+
+Among the other methods of the class, add this lazy accessor method for confident memory management of the object:
+
+<pre>
+- (PocketsphinxController *)pocketsphinxController {
+	if (pocketsphinxController == nil) {
+		pocketsphinxController = [[PocketsphinxController alloc] init];
+	}
+	return pocketsphinxController;
+}
+</pre>

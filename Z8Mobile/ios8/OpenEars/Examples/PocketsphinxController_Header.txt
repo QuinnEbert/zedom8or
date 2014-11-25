@@ -1,0 +1,13 @@
+Add the following lines to your header (the .h file). Under the imports at the very top:
+<pre>
+#import &lt;OpenEars/PocketsphinxController.h&gt;
+#import &lt;OpenEars/AcousticModel.h&gt;
+</pre>
+In the middle part where instance variables go:
+<pre>
+PocketsphinxController *pocketsphinxController;
+</pre>
+In the bottom part where class properties go:
+<pre>
+@property (strong, nonatomic) PocketsphinxController *pocketsphinxController;
+</pre>

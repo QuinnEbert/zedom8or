@@ -1,0 +1,65 @@
+/*! \mainpage Introduction and Installation
+
+
+@section intro_sec Introduction
+
+OpenEars is an shared-source iOS framework for iPhone voice recognition and speech synthesis (TTS). It lets you easily implement round-trip English and Spanish language speech recognition and English text-to-speech on the iPhone, iPod and iPad and uses the open source CMU Pocketsphinx, CMU Flite, and CMUCLMTK libraries, and it is free to use in an iPhone, iPad or iPod app (Spanish text-to-speech is possible on the OpenEars Platform but requires using <a href="http://www.politepix.com/neatspeech">NeatSpeech</a> since there isn't a Spanish voice for Flite). It is the most popular offline framework for speech recognition and speech synthesis on iOS and has been featured in development books such as O'Reilly's <em>Basic Sensors in iOS</em> by Alasdair Allan and <em>Cocos2d for iPhone 1 Game Development Cookbook</em> by Nathan Burba.<p>
+
+<a href="http://www.politepix.com/openearsplatform">The OpenEars Platform</a> is also a complete development platform for creating your speech recognition and text-to-speech apps including both the free OpenEars SDK documented on this page and a diverse <a href="http://www.politepix.com/openearsplatform">set of plugins</a> that can be added to OpenEars in order to extend and refine its default features: you can read more about the OpenEars platform <a href="http://www.politepix.com/openearsplatform">here</a>. This page is all about the free and shared-source OpenEars SDK, to please read on to learn more about it.<p>
+
+Highly-accurate large-vocabulary recognition (that is, trying to recognize any word the user speaks out of many thousands of known words) is not yet a reality for local in-app processing on a small handheld device given the hardware limitations of the platform; even Siri does its large-vocabulary recognition on the server side. However, Pocketsphinx (the open source voice recognition engine that OpenEars uses) is capable of local recognition of vocabularies with hundreds of words depending on the environment and other factors, and performs very well with command-and-control language models in English and Spanish. The best part is that it uses no network connectivity because all processing occurs locally on the device.
+
+<h5>The current version of OpenEars is 1.7.<a href="/wp-content/uploads/OpenEarsDistribution.tar.bz2">Download OpenEars</a> or read its <a href="http://www.politepix.com/openears/changelog/">changelog</a>.</h5>
+
+\subsection step1 Features of OpenEars
+
+ OpenEars can:
+ 
+ - Perform speech recognition in English and in Spanish
+ - Perform text-to-speech in English and with the <a href="http://www.politepix.com/neatspeech">NeatSpeech</a> plugin, can also perform text-to-speech in Spanish
+ - Listen continuously for speech on a background thread, while suspending or resuming speech processing on demand, all while using less than 1% CPU on average on current devices (decoding speech, text-to-speech, updating the UI and other intermittent functions use more CPU),
+ - Use any of 9 voices for speech, including male and female voices with a range of speed/quality level, and switch between them on the fly,
+ - Change the pitch, speed and variance of any text-to-speech voice,
+ - Know whether headphones are plugged in and continue voice recognition during text-to-speech only when they are plugged in,
+ - Support bluetooth audio devices (experimental),
+ - Dispatch information to any part of your app about the results of speech recognition and speech, or changes in the state of the audio session (such as an incoming phone call or headphones being plugged in),
+ - Deliver level metering for both speech input and speech output so you can design visual feedback for both states.
+ - Support JSGF grammars,
+ - Dynamically generate probability-based language models and rule-based grammars using simple object-oriented language
+ - Switch between ARPA language models or JSGF grammars on the fly,
+ - Get n-best lists with scoring,
+ - Test existing recordings,
+ - Be easily interacted with via standard and simple Objective-C methods,
+ - Control all audio functions with text-to-speech and speech recognition in memory instead of writing audio files to disk and then reading them,
+ - Drive speech recognition with a low-latency Audio Unit driver for highest responsiveness,
+ - Be installed in a Cocoa-standard fashion using an easy-peasy already-compiled framework.
+ - In addition to its various new features and faster recognition/text-to-speech responsiveness, OpenEars now has improved recognition accuracy.
+ - OpenEars is free to use in an iPhone or iPad app.
+  
+ @warning Before using OpenEars, please note it has to use a different audio driver on the Simulator that is less accurate, so it is always necessary to evaluate accuracy on a real device. Please don't submit support requests for accuracy issues with the Simulator.<p>
+
+  @section install_sec Installation
+  
+ 
+
+To use OpenEars:
+ 
+ - <a href="/wp-content/uploads/OpenEarsDistribution.tar.bz2">Download the distribution</a> and unpack it. 
+ 
+ - Create your own app, and add the iOS frameworks AudioToolbox and AVFoundation to it.
+ 
+ - Inside your downloaded distribution there is a folder called "Framework". Drag the "Framework" folder into your app project in Xcode.
+ 
+ OK, now that you've finished laying the groundwork, you have to...wait, that's everything. You're ready to start using OpenEars. Give the sample app a spin to try out the features (the sample app uses ARC so you'll need a recent Xcode version) and then visit the <a href="http://www.politepix.com/openears/tutorial">Politepix interactive tutorial generator</a> for a customized tutorial showing you exactly what code to add to your app for all of the different functionality of OpenEars.
+ 
+ If the steps on this page didn't work for you, you can get <a href="http://www.politepix.com/forums/openears">free support at the forums</a>, read the <a href="http://www.politepix.com/openears/support">FAQ</a>, brush up on the <a href="http://www.politepix.com/openears/#Basic_concepts">documentation</a>, or open a <a href="http://www.politepix.com/shop/openears-support-incident/">private email support incident at the Politepix shop</a>. If you'd like to read the documentation, simply read onward.
+ 
+@section concept_sec Basic concepts
+
+There are a few basic concepts to understand about voice recognition and OpenEars that will make it easiest to create an app.
+- Local or offline speech recognition versus server-based or online speech recognition: most speech recognition on the iPhone, iPod and iPad is done by streaming the speech audio to servers. OpenEars works by doing the recognition inside the device, entirely offline without using the network. This saves bandwidth and results in faster response, but since a server is much more powerful than a phone it means that we have to work with much smaller vocabularies to get accurate recognition.<p>
+- Language Models. The language model is the vocabulary that you want OpenEars to understand, in a format that its speech recognition engine can understand. The smaller and better-adapted to your users' real usage cases the language model is, the better the accuracy. An ideal language model for PocketsphinxController has fewer than 200 words.
+- The parts of OpenEars. OpenEars has a simple, flexible and very powerful architecture. <p>PocketsphinxController recognizes speech using a language model that was dynamically created by LanguageModelGenerator. FliteController creates synthesized speech (TTS). And OpenEarsEventsObserver dispatches messages about every feature of OpenEars (what speech was understood by the engine, whether synthesized speech is in progress, if there was an audio interruption) to any part of your app. <p>
+ *
+ *
+ */

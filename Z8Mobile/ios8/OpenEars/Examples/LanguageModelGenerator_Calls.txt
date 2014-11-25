@@ -1,0 +1,29 @@
+In offline speech recognition, you define the vocabulary that you want your app to be able to recognize. A good vocabulary size for an offline speech recognition app on the iPhone, iPod or iPad is between 3 and 300 words. 
+<p>
+In the method where you want to create your language model (for instance your viewDidLoad method), add the following method call (replacing the placeholders like "WORD" and "A PHRASE" with actual words and phrases you want to be able to recognize):<p>
+<pre>
+NSArray *words = [NSArray arrayWithObjects:@"WORD", @"STATEMENT", @"OTHER WORD", @"A PHRASE", nil];
+NSString *name = @"NameIWantForMyLanguageModelFiles";
+NSError *err = [lmGenerator generateLanguageModelFromArray:words withFilesNamed:name forAcousticModelAtPath:[AcousticModel pathToModel:@"AcousticModelEnglish"]]; // Change "AcousticModelEnglish" to "AcousticModelSpanish" to create a Spanish language model instead of an English one.
+
+
+NSDictionary *languageGeneratorResults = nil;
+
+NSString *lmPath = nil;
+NSString *dicPath = nil;
+	
+if([err code] == noErr) {
+	
+	languageGeneratorResults = [err userInfo];
+		
+	lmPath = [languageGeneratorResults objectForKey:@"LMPath"];
+	dicPath = [languageGeneratorResults objectForKey:@"DictionaryPath"];
+		
+} else {
+	NSLog(@"Error: %@",[err localizedDescription]);
+}
+</pre>
+
+If you are using the default English-language or Spanish-language model generation, it is a requirement to enter your words and phrases in all capital letters, since the model is generated against a dictionary in which the entries are capitalized (meaning that if the words in the array aren't capitalized, they will not match the dictionary and you will not have the widest variety of pronunciations understood for the word you are using).
+
+If you need to create a fixed language model ahead of time instead of creating it dynamically in your app, just use this method (or generateLanguageModelFromTextFile:withFilesNamed:) to submit your full language model using the Simulator and then use the <a href="http://www.politepix.com/2011/05/13/open-the-simulator-sandbox-folder-of-the-app-you-just-built-and-ran/">Simulator documents folder script</a> to get the language model and dictionary file out of the documents folder and add it to your app bundle, referencing it from there.

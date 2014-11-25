@@ -1,0 +1,23 @@
+Add the following to your implementation (the .m file):
+
+Under the @implementation keyword at the top:
+<pre>
+@synthesize openEarsEventsObserver;
+</pre>
+
+Among the other methods of the class, add this lazy accessor method for confident memory management of the object:
+
+<pre>
+- (OpenEarsEventsObserver *)openEarsEventsObserver {
+	if (openEarsEventsObserver == nil) {
+		openEarsEventsObserver = [[OpenEarsEventsObserver alloc] init];
+	}
+	return openEarsEventsObserver;
+}
+</pre>
+
+and then right before you start your first OpenEars functionality (for instance, right before your first self.fliteController say:withVoice: message or right before your first self.pocketsphinxController startListeningWithLanguageModelAtPath:dictionaryAtPath:languageModelIsJSGF: message) send this message:
+
+<pre>
+[self.openEarsEventsObserver setDelegate:self];
+</pre>

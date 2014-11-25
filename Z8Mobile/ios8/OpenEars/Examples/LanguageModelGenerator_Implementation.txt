@@ -1,0 +1,12 @@
+Add the following to your implementation (the .m file):
+
+Under the @implementation keyword at the top:
+<pre>
+#import &lt;OpenEars/LanguageModelGenerator.h&gt;
+</pre>
+
+Wherever you need to instantiate the language model generator, do it as follows:
+
+<pre>
+LanguageModelGenerator *lmGenerator = [[LanguageModelGenerator alloc] init];
+</pre>

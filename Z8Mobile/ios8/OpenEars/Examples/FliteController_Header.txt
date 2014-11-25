@@ -1,0 +1,15 @@
+Add the following lines to your header (the .h file). Under the imports at the very top:
+<pre>
+#import &lt;Slt/Slt.h&gt;
+#import &lt;OpenEars/FliteController.h&gt;
+</pre>
+In the middle part where instance variables go:
+<pre>
+FliteController *fliteController;
+Slt *slt;
+</pre>
+In the bottom part where class properties go:
+<pre>
+@property (strong, nonatomic) FliteController *fliteController;
+@property (strong, nonatomic) Slt *slt;
+</pre>
