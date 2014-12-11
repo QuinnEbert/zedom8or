@@ -1,32 +1,16 @@
-//  ViewController.h
-//  OpenEarsSampleApp
-//
-//  ViewController.h demonstrates the use of the OpenEars framework. 
-//
-//  Copyright Politepix UG (haftungsbeschränkt) 2012. All rights reserved.
-//  http://www.politepix.com
-//  Contact at http://www.politepix.com/contact
-//
-//  This file is licensed under the Politepix Shared Source license found in the root of the source distribution.
-
-// ********************************************************************************************************************************************************************
-// ********************************************************************************************************************************************************************
-// ********************************************************************************************************************************************************************
-// IMPORTANT NOTE: This version of OpenEars introduces a much-improved low-latency audio driver for recognition. However, it is no longer compatible with the Simulator.
-// Because I understand that it can be very frustrating to not be able to debug application logic in the Simulator, I have provided a second driver that is based on
-// Audio Queue Services instead of Audio Units for use with the Simulator exclusively. However, this is purely provided as a convenience for you: please do not evaluate
-// OpenEars' recognition quality based on the Simulator because it is better on the device, and please do not report Simulator-only bugs since I only actively support 
-// the device driver and generally, audio code should never be seriously debugged on the Simulator since it is just hosting your own desktop audio devices. Thanks!
-// ********************************************************************************************************************************************************************
-// ********************************************************************************************************************************************************************
-// ********************************************************************************************************************************************************************
-
 #import <UIKit/UIKit.h>
 #import <Slt/Slt.h>
 
 @class PocketsphinxController;
 @class FliteController;
+
 #import <OpenEars/OpenEarsEventsObserver.h> // We need to import this here in order to use the delegate.
+
+// Dispositions that can be arrived at by way of parsing input speech and transcribing
+#define DISPO_INVALID       0
+#define DISPO_SET_POWER     1
+#define DISPO_SWITCH_INPUT  2
+#define DISPO_SET_VOLUME    4
 
 @interface ViewController : UIViewController <OpenEarsEventsObserverDelegate> {
 	Slt *slt;
@@ -60,7 +44,15 @@
 	
 	// Our NSTimer that will help us read and display the input and output levels without locking the UI
 	NSTimer *uiUpdateTimer;
+    
+    NSArray *arrFunctions;
+    NSArray *arrOutputs;
+    NSArray *arrInputs;
 }
+
+@property (strong,retain) NSArray *arrFunctions;
+@property (strong,retain) NSArray *arrOutputs;
+@property (strong,retain) NSArray *arrInputs;
 
 // UI actions, not specifically related to OpenEars other than the fact that they invoke OpenEars methods.
 - (IBAction) stopButtonAction;
