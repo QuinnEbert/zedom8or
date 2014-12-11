@@ -1,0 +1,18 @@
+Viewsonic Pro 8100 Serial Control
+=================================
+
+Library to control Viewsonic Pro 8100 projectors over serial.
+
+
+Status:
+======
+Mostly feature complete, cannot get data back from read/get commands
+
+
+Requirements:
+=============
+- pyserial (http://pyserial.sourceforge.net/)
+
+License:
+========
+See LICENSE

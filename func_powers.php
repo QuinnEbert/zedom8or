@@ -14,7 +14,7 @@ require_once($ourFile);
 	}
 	function cmboDbg_setPower_PRVS(fnPower) {
 		pvRebel_setPower(fnPower);
-		vstvDbg_togPower();
+		vstvDbg_powerOn();
 	}
 	function pvRebel_setPower(fnPower) {
 		if (window.XMLHttpRequest) {
@@ -34,13 +34,13 @@ require_once($ourFile);
 		xmlhttp.open("GET","index.php?powerOff_VizioTV=Y",true);
 		xmlhttp.send();
 	}
-	function vstvDbg_togPower() {
+	function vstvDbg_powerOn() {
 		if (window.XMLHttpRequest) {
 			xmlhttp=new XMLHttpRequest();
 		} else {
 			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 		}
-		xmlhttp.open("GET","index.php?powerOff_ViewsonicTV=Y",true);
+		xmlhttp.open("GET","index.php?powerOn_ViewsonicTV=Y",true);
 		xmlhttp.send();
 	}
 </script>
@@ -56,7 +56,7 @@ require_once($ourFile);
 <!-- This is going away...It's just for testing... -->
 <table border="1" cellspacing="1" cellpadding="4" style="padding: 0px; margin: 0px; margin-left: 24px; margin-bottom: 16px;">
 <tr><td><h3>ViewSonic PJD7820HD</h3></td></tr>
-<tr><td><p><input type="button" onClick="vstvDbg_togPower()" name="Power Toggle" value="Power Toggle" /></p></td></tr>
+<tr><td><p><input type="button" onClick="vstvDbg_powerOn()" name="Power On" value="Power On" /></p></td></tr>
 </table>
 <!-- This is going away...It's just for testing... -->
 <table border="1" cellspacing="1" cellpadding="4" style="padding: 0px; margin: 0px; margin-left: 24px; margin-bottom: 16px;">
