@@ -16,6 +16,13 @@ Plans
 Status
 ------
 
+**01st Mar, 2015:**
+
+* *Trying to pick back up with this project after a couple of full-time job changes (gotta love startups), a move out of my home state, and a few months of dealing with some health issues.*
+* Posted a "proposed" `Z8DevCfg.php` file to try to start to put together a "reconfigurable" way of having devices appear in the web interface (yeah, I know this has taken waaay too long to get around to).
+* Since I last updated this doc section, of note, I have added (based on a fork) a RS232-based way of beginning to control esp. serial-controllable projectors (and such).
+* Also, since I last updated this doc section, I have lost access to a functional 3D printer (I have plans to rectify this late in the summer).  Once that's dealt with I hope to start iterating properly on case designs (again, after far too long).
+
 **08th Apr, 2013:**
 
 * ***My USB-UIRT is scheduled to deliver today, hope to get in some dev time with it, in the late evening.***
