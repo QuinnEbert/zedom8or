@@ -13,6 +13,13 @@ Plans
 * ***Tested on Raspberry Pi as a primary platform.***
 * 3D-printable (tested on Solidoodle 2) STL model files for printable cases that can be used to better situate and arrange your R-Pi and/or USB-UIRT.
 
+Donations
+------
+
+There has been a lot more interest in Zedom8or/PioneerRebel than I'd ever expected.  If you like what I'm doing, please consider donating:
+
+[Donate Now](http://quinnebert.net/z8donate/)
+
 Status
 ------
 
