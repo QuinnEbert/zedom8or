@@ -203,6 +203,7 @@ td p {
         $body = '<p><em>You need to setup a Zedom8or configuration file!</em></p>';
 	} else {
 		require_once($cfgFile);
+		require_once('./Z8Engine.php');
 		if (strlen($_SERVER['QUERY_STRING'])) {
 			$appFile = dirname(__FILE__).'/func_'.$_SERVER['QUERY_STRING'].'.php';
 			if ( file_exists($appFile)==false || is_readable($appFile)==false ) {

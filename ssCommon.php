@@ -22,6 +22,7 @@ if (isset($_GET['tivobox'])) $tivobox = $_GET['tivobox'];
  *  CODE BELOW
  */
 
+require(dirname(__FILE__).'/Z8DevCfg.php');
 require(dirname(__FILE__).'/Z8Config.php');
 require_once(dirname(__FILE__).'/irtFuncs.php');
 
