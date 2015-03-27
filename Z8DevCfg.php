@@ -3,6 +3,13 @@ $devices = array(
 	'ViewSonic PJD7820HD' => array(
 		'control' => 'commands',
 		'device' => 'projector',
+		'room' => 'Theatre',
+		'link_as' => 'projector',
+		'links' => array(
+			'inputs' => array(
+				'receiver'
+			),
+		),
 		'commands' => array(
 			array('name'=>'Power > Off','command'=>'./pjd7820hd.py \'Power OFF\''),
 			array('name'=>'Power > On','command'=>'./pjd7820hd.py \'Power ON\''),
@@ -15,8 +22,15 @@ $devices = array(
 	),
 	'Pioneer VSX-1023-K' => array(
 		'control' => 'phpClass',
-		'device' => 'receiver',
 		'class' => 'vsx1023k',
+		'device' => 'receiver',
+		'room' => 'Theatre',
+		'link_as' => 'receiver',
+		'links' => array(
+			'outputs' => array(
+				'projector'
+			),
+		),
 		'commands' => array(
 			array('name'=>'Power On','command'=>'power_on'),
 			array('name'=>'Power Off','command'=>'power_off'),			
