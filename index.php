@@ -14,6 +14,10 @@ if ( file_exists($irtConf) ) {
 }
 require_once(dirname(__FILE__).'/ssCommon.php');
 require_once(dirname(__FILE__).'/PioneerRebel/pioneer.lib.php');
+
+function getWebAppName() {
+	return str_replace(strstr($_SERVER['QUERY_STRING'],'='),'',$_SERVER['QUERY_STRING']);
+}
 ?>
 <!doctype html>
 <html>
@@ -138,12 +142,12 @@ td {
 	margin-left: 0px;
 	padding-left: 8px;
 }
-td h3 {
+/*td h3 {
 	margin-bottom: 5px;
 	padding-bottom: 0px;
 	margin-left: 0px;
 	padding-left: 1px;
-}
+}*/
 td p {
 	margin-bottom: 7px;
 	padding-bottom: 0px;
@@ -177,6 +181,15 @@ td p {
       <li><a href="index.php?vollev">Volume Levels</a></li>
       <li><a href="index.php?inputs">Input Switches</a></li>
     </ul>
+    Full Control (NEW)
+    <ul class="nav">
+      <?php
+      foreach ($devices as $devName=>$devInfo) {
+      	if (isset($devInfo['link_as']))
+      	  echo('<li><a href="index.php?dynctl='.$devInfo['link_as'].'">'.$devName.'</a></li>');
+      }
+      ?>
+    </ul>
     Information
     <ul class="nav">
       <li><a href="index.php?status">System</a></li>
@@ -205,7 +218,7 @@ td p {
 		require_once($cfgFile);
 		require_once('./Z8Engine.php');
 		if (strlen($_SERVER['QUERY_STRING'])) {
-			$appFile = dirname(__FILE__).'/func_'.$_SERVER['QUERY_STRING'].'.php';
+			$appFile = dirname(__FILE__).'/func_'.getWebAppName().'.php';
 			if ( file_exists($appFile)==false || is_readable($appFile)==false ) {
 				$header = 'Error';
 				$body = '<p>The requested function isn\'t supported here!</p>';

@@ -9,7 +9,7 @@
  */
 
 // Attempt to load classes for devices that need them:
-foreach ($devices as $device) {
+/*foreach ($devices as $device) {
 	if ($device['control'] == 'phpClass') {
 		$modFile = './DevicesLibrary/'.$device['class'].'.php';
 		if (!file_exists($modFile)) {
@@ -18,6 +18,6 @@ foreach ($devices as $device) {
 			require_once($modFile);
 		}
 	}
-}
+}*/
 
 ?>
