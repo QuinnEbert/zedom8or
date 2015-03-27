@@ -25,6 +25,17 @@ if (isset($_GET['tivobox'])) $tivobox = $_GET['tivobox'];
 require(dirname(__FILE__).'/Z8DevCfg.php');
 require(dirname(__FILE__).'/Z8Config.php');
 require_once(dirname(__FILE__).'/irtFuncs.php');
+require_once(dirname(__FILE__).'/PioneerRebel/pioneer.lib.php');
+
+// Load in stuff from 'DevicesLibrary' for any phpClass-using devices:
+foreach ($devices as $device) {
+	if ($device['control'] == 'phpClass') {
+		$useFile = dirname(__FILE__).'/DevicesLibrary/'.$device['class'].'.php';
+		if (!file_exists($useFile))
+			die('FATAL: the "'.$useFile.'" class file couldn\'t be loaded!');
+		require_once($useFile);
+	}
+}
 
 if (!function_exists('primeRPi')) {
 	function primeRPi() {
