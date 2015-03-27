@@ -26,6 +26,8 @@ $our_device = get_named_device($ctl_dev);
 $header = 'Control '.$our_device['name'];
 ob_start();
 
+echo '<div style="margin:0px;padding:0px 12pt 12pt 12pt;">';
+
 $our_device['compiled_links']['i'] = array();
 $our_device['compiled_links']['o'] = array();
 if (isset($our_device['data']['links']['inputs'])) { foreach ($our_device['data']['links']['inputs'] as $linkDev) {
@@ -35,10 +37,13 @@ if (isset($our_device['data']['links']['outputs'])) { foreach ($our_device['data
 	$our_device['compiled_links']['o'][] = get_named_device($linkDev);
 } }
 
+echo '<p>Located in the <strong>'.$our_device['data']['room'].'</strong></p>';
+
 echo '<table border="1"><tr>';
 // Controls
 echo '<td align="left" valign="top">';
 echo '<h2>Controls</h2>';
+echo '<pre>'.print_r($our_device['data'],true).'</pre>';
 echo '</td>';
 // Linked Devices
 if (count($our_device['compiled_links']['i'])||count($our_device['compiled_links']['o'])) {
@@ -47,21 +52,22 @@ if (count($our_device['compiled_links']['i'])||count($our_device['compiled_links
 	if (count($our_device['compiled_links']['i'])) {
 		echo '<h3>On Inputs:</h3><ul>';
 		foreach ($our_device['compiled_links']['i'] as $dev) {
-			echo '<li>'.$dev['name'].'</li>';
+			echo '<li>'.$dev['name'].' ('.$dev['data']['device'].')</li>';
 		}
 		echo '</ul>';
 	}
 	if (count($our_device['compiled_links']['o'])) {
 		echo '<h3>On Outputs:</h3><ul>';
 		foreach ($our_device['compiled_links']['o'] as $dev) {
-			echo '<li>'.$dev['name'].'</li>';
+			echo '<li>'.$dev['name'].' ('.$dev['data']['device'].')</li>';
 		}
 		echo '</ul>';
 	}
 	echo '</td>';
 }
 echo '</tr></table>';
-//echo '<pre>'.print_r($our_device,true).'</pre>';
+
+echo '</div>';
 
 $body = ob_get_contents();
 ob_end_clean();
