@@ -37,6 +37,48 @@ foreach ($devices as $device) {
 	}
 }
 
+if (!function_exists('strhasprefix')) {
+	function strhasprefix($haystack,$needle) {
+		return (strstr($haystack,$needle)==$haystack);
+	}
+}
+
+if (!function_exists('z8_render_ctl_command')) {
+	function z8_render_ctl_command($control,$callback_name) {
+		if (strhasprefix($control['type'],'button_oneshot')) {
+			return '<input type="button" name="'.$control['name'].'" value="'.$control['name'].'" onclick="javascript:z8_js_button_oneshot(\''.$callback_name.'\',\''.str_replace('\'',"\\".'\'',$control['command']).'\');" />';
+		}
+		return 'Foo';
+	}
+}
+
+if (!function_exists('z8_render_ctl_table')) {
+	function z8_render_ctl_table($title,$controls,$callback_name) {
+		/* NOTE TO MYSELF:
+		   
+		   $controls should be any array like:
+		   
+		   $controls = array(
+		       [0] => array(
+		           'device_link' => ...'link_as' name for device (used for JS linkage)...,
+		           'type' => ...command type...,
+		           'name' => ...command name...,
+		           'command' => ...command string...,
+		       )
+		   );
+		 */
+		$returns = '<table class="ctlTable" border="3"><tr><td>'.$title.'</td></tr><tr><td>';
+		$lastDev = (count($controls)-1);
+		for ($i = 0; $i <= $lastDev; $i++) {
+			$returns .= z8_render_ctl_command($controls[$i],$callback_name);
+			if ($i < $lastDev)
+				$returns .= '<br />';
+		}
+		$returns .= '</td></tr></table>';
+		return $returns;
+	}
+}
+
 if (!function_exists('primeRPi')) {
 	function primeRPi() {
 		require(dirname(__FILE__).'/Z8Config.php');

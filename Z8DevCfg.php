@@ -11,13 +11,17 @@ $devices = array(
 			),
 		),
 		'commands' => array(
-			array('name'=>'Power > Off','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'Power OFF\''),
-			array('name'=>'Power > On','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'Power ON\''),
-			array('name'=>'Input > HDMI','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'HDMI\''),
-			array('name'=>'Input > VGA 1','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'VGA 1\''),
-			array('name'=>'Input > VGA 2','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'VGA 2\''),
-			array('name'=>'Input > Composite','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'Composite\''),
-			array('name'=>'Input > S-Video','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'S-Video\''),
+			'Power' => array(
+				array('name'=>'Power > Off','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'Power OFF\''),
+				array('name'=>'Power > On','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'Power ON\''),
+			),
+			'Inputs' => array(
+				array('name'=>'Input > HDMI','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'HDMI\''),
+				array('name'=>'Input > VGA 1','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'VGA 1\''),
+				array('name'=>'Input > VGA 2','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'VGA 2\''),
+				array('name'=>'Input > Composite','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'Composite\''),
+				array('name'=>'Input > S-Video','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'S-Video\''),
+			),
 		),
 	),
 	'Pioneer VSX-1023-K' => array(
@@ -32,8 +36,10 @@ $devices = array(
 			),
 		),
 		'commands' => array(
-			array('name'=>'Power On','type'=>'button_oneshot','command'=>'power_on'),
-			array('name'=>'Power Off','type'=>'button_oneshot','command'=>'power_off'),			
+			'Power' => array(
+				array('name'=>'Power On','type'=>'button_oneshot','command'=>'power_on'),
+				array('name'=>'Power Off','type'=>'button_oneshot','command'=>'power_off'),			
+			),
 		),
 	),
 );

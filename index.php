@@ -154,6 +154,19 @@ td p {
 	margin-left: 0px;
 	padding-left: 0px;
 }
+table.ctlTable {
+	margin-bottom: 6pt;
+	margin-right: 6pt;
+}
+table.ctlTable tr td {
+	padding: 4pt;
+	padding-bottom: 6pt;
+	min-width: 160pt;
+}
+table.ctlTable tr td input {
+	width: 152pt;
+	margin-left: 3pt;
+}
 -->
 </style>
 </head>
