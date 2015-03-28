@@ -11,6 +11,12 @@ $prState = array(
 ob_start();
 ?>
 <table style="padding: 0px; margin: 0px; margin-left: 24px; margin-bottom: 16px;" width="59%" border="1" cellspacing="1" cellpadding="4">
+<tr><td><h3>Environment</h3></td></tr>
+<tr><td>
+<pre><?php system('pwd'); ?></pre>
+</td></tr>
+</table>
+<table style="padding: 0px; margin: 0px; margin-left: 24px; margin-bottom: 16px;" width="59%" border="1" cellspacing="1" cellpadding="4">
 <tr><td colspan="2"><h3>Pioneer VSX-1022-K</h3></td></tr>
 <?php
 foreach ($prState as $key=>$value) {
