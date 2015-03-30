@@ -25,51 +25,11 @@ if (isset($_GET['pioneer'])) $pioneer = $_GET['pioneer'];
 //   false : confirmation alert won't display
 $confirm = true;
 
-//FIXME: needs to be centralized!
-if (!function_exists('get_named_device')) {
-	function get_named_device($devName) {
-		global $devices;
-		foreach ($devices as $device_name => $device) {
-			if ($device['link_as']==$devName) {
-				$our_device = array(
-					'name' => $device_name,
-					'data' => $device,
-				);
-				return $our_device;
-			}
-		}
-		return null;
-	}
-}
+require_once dirname(__FILE__).'/genFuncs.php';
 
 if (isset($_GET['z8cmd'])&&isset($_GET['z8dev'])) {
 	header('Content-Type: text/xml');
-	// Load the device config:
-	require_once dirname(__FILE__).'/Z8DevCfg.php';
-	// Load phpClass device classes:
-	foreach ($devices as $device) {
-		if ($device['control'] == 'phpClass') {
-			$modFile = dirname(__FILE__).'/DevicesLibrary/'.$device['class'].'.php';
-			if (!file_exists($modFile)) {
-				die('Cannot load module: '.$modFile);
-			} else {
-				require_once $modFile;
-			}
-		}
-	}
-	// Get the device specifics:
-	$our_device = get_named_device($_GET['z8dev']);
-	// Is it a phpClass device or not?
-	if ($our_device['control']!='phpClass') {
-		// "Straight" device, run command via system():
-		ob_start();
-		system($_GET['z8cmd']);
-		ob_end_clean();
-	} else {
-		// phpClass device, run command via class:
-		//FIXME: this needs implementation!!!
-	}
-	die("<pioneer_rebel>\n  <status>OK</status>\n</pioneer_rebel>\n");
+	die(z8_exec_devctl_cmd($_GET['z8dev'],$_GET['z8cmd']));
 }
 
 /* 
