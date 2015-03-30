@@ -8,3 +8,7 @@
  * to perform commands against the locally configured devices.
  */
 
+if (isset($_POST['z8cmd'])&&isset($_POST['z8dev'])) {
+	header('Content-Type: text/xml');
+	die(z8_exec_devctl_cmd($_POST['z8dev'],$_POST['z8cmd']));
+}

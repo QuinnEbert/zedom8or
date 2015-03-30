@@ -25,6 +25,7 @@ if (isset($_GET['pioneer'])) $pioneer = $_GET['pioneer'];
 //   false : confirmation alert won't display
 $confirm = true;
 
+// Bring in the new, manageable common server-side functions lib:
 require_once dirname(__FILE__).'/genFuncs.php';
 
 if (isset($_GET['z8cmd'])&&isset($_GET['z8dev'])) {
