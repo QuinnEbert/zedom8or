@@ -7,7 +7,7 @@ $devices = array(
 		'link_as' => 'projector',
 		'links' => array(
 			'inputs' => array(
-				'receiver'
+				'HDMI-In' => 'receiver'
 			),
 		),
 		'commands' => array(
@@ -32,7 +32,7 @@ $devices = array(
 		'link_as' => 'receiver',
 		'links' => array(
 			'outputs' => array(
-				'projector'
+				'HDMI-Out' => 'projector'
 			),
 		),
 		'commands' => array(

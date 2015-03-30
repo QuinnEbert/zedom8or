@@ -49,11 +49,11 @@ echo '<div style="margin:0px;padding:0px 12pt 12pt 12pt;">';
 
 $our_device['compiled_links']['i'] = array();
 $our_device['compiled_links']['o'] = array();
-if (isset($our_device['data']['links']['inputs'])) { foreach ($our_device['data']['links']['inputs'] as $linkDev) {
-	$our_device['compiled_links']['i'][] = get_named_device($linkDev);
+if (isset($our_device['data']['links']['inputs'])) { foreach ($our_device['data']['links']['inputs'] as $portName => $linkDev) {
+	$our_device['compiled_links']['i'][$portName] = get_named_device($linkDev);
 } }
-if (isset($our_device['data']['links']['outputs'])) { foreach ($our_device['data']['links']['outputs'] as $linkDev) {
-	$our_device['compiled_links']['o'][] = get_named_device($linkDev);
+if (isset($our_device['data']['links']['outputs'])) { foreach ($our_device['data']['links']['outputs'] as $portName => $linkDev) {
+	$our_device['compiled_links']['o'][$portName] = get_named_device($linkDev);
 } }
 
 echo '<p>Located in the <strong>'.$our_device['data']['room'].'</strong></p>';
@@ -81,15 +81,15 @@ if (count($our_device['compiled_links']['i'])||count($our_device['compiled_links
 	echo '<h2>Linked Devices</h2>';
 	if (count($our_device['compiled_links']['i'])) {
 		echo '<h3>On Inputs:</h3><ul>';
-		foreach ($our_device['compiled_links']['i'] as $dev) {
-			echo '<li>'.$dev['name'].' ('.$dev['data']['device'].')</li>';
+		foreach ($our_device['compiled_links']['i'] as $portName => $dev) {
+			echo '<li>'.$dev['name'].' ('.$dev['data']['device'].')<br /><strong>on '.$portName.'</strong></li>';
 		}
 		echo '</ul>';
 	}
 	if (count($our_device['compiled_links']['o'])) {
 		echo '<h3>On Outputs:</h3><ul>';
-		foreach ($our_device['compiled_links']['o'] as $dev) {
-			echo '<li>'.$dev['name'].' ('.$dev['data']['device'].')</li>';
+		foreach ($our_device['compiled_links']['o'] as $portName => $dev) {
+			echo '<li>'.$dev['name'].' ('.$dev['data']['device'].')<br /><strong>on '.$portName.'</strong></li>';
 		}
 		echo '</ul>';
 	}
