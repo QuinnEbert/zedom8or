@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Z8 Remote JSONP Test</title>
+<script type="text/javascript">
+function callback(data) {
+	console.dir(data);
+}
+var script = document.createElement('script');
+script.src = '//localhost:8888/Z8Remote.php?callback=callback';
+document.getElementsByTagName('head')[0].appendChild(script);
+</script>
+</head>
+<body>
+
+</body>
+</html>
