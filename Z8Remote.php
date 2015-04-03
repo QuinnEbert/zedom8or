@@ -18,5 +18,5 @@ if (isset($_POST['z8cmd'])&&isset($_POST['z8dev'])) {
 // Send configured device information (DEFAULT MODE):
 require_once dirname(__FILE__).'/Z8DevCfg.php';
 if (isset($_REQUEST['callback']))
-	die($_REQUEST['callback'].'('.json_encode(array('devices',$devices)).');');
-die(json_encode(array('devices',$devices)));
+	die($_REQUEST['callback'].'('.json_encode(array('devices'=>$devices)).');');
+die(json_encode(array('devices'=>$devices)));
