@@ -3,7 +3,11 @@
 <title>Z8 Remote JSONP Test</title>
 <script type="text/javascript">
 function callback(data) {
-	console.dir(data);
+	//console.dir(data.devices);
+	for (var devices_elem_key in data.devices) {
+		var devices_elem = data.devices[devices_elem_key];
+		console.dir(devices_elem);
+	}
 }
 var script = document.createElement('script');
 script.src = '//localhost:8888/Z8Remote.php?callback=callback';
