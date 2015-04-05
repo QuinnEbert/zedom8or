@@ -47,7 +47,8 @@ if (!function_exists('z8_exec_devctl_cmd')) {
 				ob_end_clean();
 			} else {
 				// phpClass device, run command via class:
-				//FIXME: this needs implementation!!!
+				$ctlMeth = new $our_device['class']('192.168.1.69'); // <= FIXME: temporary hack for my VSX only!!!
+				$ctlMeth->$z8cmd();
 			}
 		}
 		return "<pioneer_rebel>\n  <status>OK</status>\n</pioneer_rebel>\n";
