@@ -41,6 +41,9 @@ function z8_js_button_oneshot(device,command) {
 	}
 	xmlhttp.open("GET","ssComnPR.php?z8dev="+device+"&z8cmd="+command,false);
 	xmlhttp.send();
+	setTimeout(function(){
+		location.reload();
+	},1000);
 }
 </script>
 <?php
