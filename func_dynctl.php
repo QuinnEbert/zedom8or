@@ -99,7 +99,7 @@ if (count($our_device['compiled_links']['i'])||count($our_device['compiled_links
 				$first_probe = false;
 			}
 			echo ucfirst($probe).': ';
-			$cmd_res = $p_cmd;
+			$cmd_res = `$p_cmd`;
 			if (trim($cmd_res)=='0'||trim($cmd_res)=='1') {
 				if (trim($cmd_res)=='0') {
 					echo 'Off';
