@@ -12,7 +12,7 @@ __author__ = 'Quinn Ebert <no-reply@quinnebert.net>'
 
 import serial
 import logging
-
+import time
 import commands
 
 
@@ -99,10 +99,13 @@ class ViewsonicPJD7820HD(object):
     try:
       self.connectSerial()
       self.serial_connection.write(hex_command)
-      returns = self.serial_connection.read(1)
+      time.sleep(1)
+      got_data = self.serial_connection.read(self.serial_connection.inWaiting())
+      for c in got_data:
+        returns = returns + str(hex(ord(c))) + " "
     finally:
       self.disconnectSerial()
-    return returns.decode("utf-8")
+    return returns.rstrip()
 
   def writeCommandFromName(self, command_name):
     """Write a command based on it's named entry in commands.py.
