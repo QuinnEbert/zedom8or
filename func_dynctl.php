@@ -87,22 +87,44 @@ foreach ($our_device['data']['commands'] as $category => $category_commands) {
 }
 echo '</td>';
 // Linked Devices
-if (count($our_device['compiled_links']['i'])||count($our_device['compiled_links']['o'])) {
+if (count($our_device['compiled_links']['i'])||count($our_device['compiled_links']['o'])||isset($our_device['data']['probes'])) {
 	echo '<td align="left" valign="top">';
-	echo '<h2>Linked Devices</h2>';
-	if (count($our_device['compiled_links']['i'])) {
-		echo '<h3>On Inputs:</h3><ul>';
-		foreach ($our_device['compiled_links']['i'] as $portName => $dev) {
-			echo '<li>'.$dev['name'].' ('.$dev['data']['device'].')<br /><strong>on '.$portName.'</strong></li>';
+	if (isset($our_device['data']['probes'])) {
+		echo '<h2>Device Status</h2>';
+		$first_probe = true;
+		foreach ($our_device['data']['probes'] as $probe => $p_cmd) {
+			if (!$first_probe) {
+				echo '<br />';
+			} else {
+				$first_probe = false;
+			}
+			echo ucfirst($probe).': ';
+			$cmd_res = $p_cmd;
+			if (trim($cmd_res)=='0'||trim($cmd_res)=='1') {
+				if (trim($cmd_res)=='0') {
+					echo 'Off';
+				} else {
+					echo 'On';
+				}
+			}
 		}
-		echo '</ul>';
 	}
-	if (count($our_device['compiled_links']['o'])) {
-		echo '<h3>On Outputs:</h3><ul>';
-		foreach ($our_device['compiled_links']['o'] as $portName => $dev) {
-			echo '<li>'.$dev['name'].' ('.$dev['data']['device'].')<br /><strong>on '.$portName.'</strong></li>';
+	if (count($our_device['compiled_links']['i'])||count($our_device['compiled_links']['o'])) {
+		echo '<h2>Linked Devices</h2>';
+		if (count($our_device['compiled_links']['i'])) {
+			echo '<h3>On Inputs:</h3><ul>';
+			foreach ($our_device['compiled_links']['i'] as $portName => $dev) {
+				echo '<li>'.$dev['name'].' ('.$dev['data']['device'].')<br /><strong>on '.$portName.'</strong></li>';
+			}
+			echo '</ul>';
 		}
-		echo '</ul>';
+		if (count($our_device['compiled_links']['o'])) {
+			echo '<h3>On Outputs:</h3><ul>';
+			foreach ($our_device['compiled_links']['o'] as $portName => $dev) {
+				echo '<li>'.$dev['name'].' ('.$dev['data']['device'].')<br /><strong>on '.$portName.'</strong></li>';
+			}
+			echo '</ul>';
+		}
 	}
 	echo '</td>';
 }
@@ -128,6 +150,13 @@ if (isset($our_device['data']['analogues'])) {
 		}
 		echo '</td></tr>';
 	}
+}
+
+if (isset($_GET['debug'])) {
+	echo '<tr><td colspan="2"><h2>Debug Info</h2>';
+	echo '<h3>Device Data</h3>';
+	echo '<pre>'.print_r($our_device,true).'</pre>';
+	echo '</td></tr>';
 }
 
 echo '</table>';

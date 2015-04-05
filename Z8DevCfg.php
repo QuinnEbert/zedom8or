@@ -9,6 +9,9 @@ $devices = array(
 		/*'network' => 'no Ethernet',*/
 		'signaling' => 'RS232 signaling',
 		'link_as' => 'projector',
+		'probes' => array(
+			'power' => './pjd7820hd.py \'power_status\''
+		),
 		'links' => array(
 			'inputs' => array(
 				'HDMI-In' => 'receiver'
