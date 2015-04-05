@@ -4,8 +4,9 @@ $devices = array(
 		'control' => 'commands',
 		'device' => 'projector',
 		'room' => 'Theatre',
-		'power' => 'surge-suppressed mains',
-		'network' => 'no network (no interface)',
+		'power' => 'surge-arrested mains',
+		'network' => 'no Ethernet',
+		'signaling' => 'RS232 signaling',
 		'link_as' => 'projector',
 		'links' => array(
 			'inputs' => array(
@@ -31,8 +32,8 @@ $devices = array(
 		'class' => 'vsx1023k',
 		'device' => 'receiver',
 		'room' => 'Theatre',
-		'power' => 'surge-suppressed mains',
-		'network' => '10/100 ethernet interface, DHCP to local network',
+		'power' => 'surge-arrested mains',
+		'network' => 'fast Ethernet, our DHCP',
 		'link_as' => 'receiver',
 		'links' => array(
 			'outputs' => array(
@@ -45,25 +46,25 @@ $devices = array(
 					'name' => 'Polk Audio Tall Satellites (Stereo Pair)',
 					'wire' => 'Doubly Insulated Copper Pairs',
 					'caps' => 'Banana Clips',
-					'power' => 'From receiver'
+					'power' => 'Receiver'
 				),
 				'Rear Pair' => array(
 					'name' => 'Polk Audio Mid Satellites (Stereo Pair)',
 					'wire' => 'Doubly Insulated Copper Pairs',
 					'caps' => 'Banana Clips',
-					'power' => 'From receiver'
+					'power' => 'Receiver'
 				),
 				'Centre' => array(
 					'name' => 'Polk Audio Wide Satellite (Standalone)',
 					'wire' => 'Doubly Insulated Copper Pair',
 					'caps' => 'Banana Clips',
-					'power' => 'From receiver'
+					'power' => 'Receiver'
 				),
 				'Subwoofer' => array(
 					'name' => 'Polk Audio 16-inch Selectable Passive/Active Woofer with Direct Inputs',
 					'wire' => 'Monster Cable Blue RCA',
 					'caps' => 'RCA-style tip/ring',
-					'power' => 'Dedicated AC'
+					'power' => 'Mains'
 				),
 			),
 		),

@@ -56,7 +56,14 @@ if (isset($our_device['data']['links']['outputs'])) { foreach ($our_device['data
 	$our_device['compiled_links']['o'][$portName] = get_named_device($linkDev);
 } }
 
-echo '<p>Located in the <strong>'.$our_device['data']['room'].'</strong></p>';
+echo '<p>Located in the <strong>'.$our_device['data']['room'].'</strong>';
+if (isset($our_device['data']['power']))
+	echo '<br />Power: '.$our_device['data']['power'];
+if (isset($our_device['data']['signaling']))
+	echo '<br />Control: '.$our_device['data']['signaling'];
+if (isset($our_device['data']['network']))
+	echo '<br />Networking: '.$our_device['data']['network'];
+echo '</p>';
 
 echo '<table border="1"><tr>';
 // Controls
@@ -95,7 +102,31 @@ if (count($our_device['compiled_links']['i'])||count($our_device['compiled_links
 	}
 	echo '</td>';
 }
-echo '</tr></table>';
+echo '</tr>';
+
+if (isset($our_device['data']['analogues'])) {
+	if (isset($our_device['data']['analogues']['speakers'])) {
+		echo '<tr><td colspan="2"><h2>Connected Analogue Speakers</h2>';
+		foreach ($our_device['data']['analogues']['speakers'] as $set_name => $speaker) {
+			echo '<ul>';
+			echo '<li>';
+			echo '<strong>'.$set_name.'</strong>';
+			echo '<ul>';
+			
+			echo '<li><em>'.$speaker['name'].'</em></li>';
+			echo '<li>Cabled with: '.$speaker['wire'].'</li>';
+			echo '<li>Terminated with: '.$speaker['caps'].'</li>';
+			echo '<li>Powered by: '.$speaker['power'].'</li>';
+			
+			echo '</ul>';
+			echo '</li>';
+			echo '</ul>';
+		}
+		echo '</td></tr>';
+	}
+}
+
+echo '</table>';
 
 echo '</div>';
 
