@@ -56,6 +56,10 @@ if (isset($our_device['data']['links']['outputs'])) { foreach ($our_device['data
 	$our_device['compiled_links']['o'][$portName] = get_named_device($linkDev);
 } }
 
+if (isset($our_device['data']['device_descriptive'])) {
+	echo "<p><em>{$our_device['data']['device_descriptive']}</em></p>";
+}
+
 echo '<p>Located in the <strong>'.$our_device['data']['room'].'</strong>';
 if (isset($our_device['data']['power']))
 	echo '<br />Power: '.$our_device['data']['power'];
