@@ -139,3 +139,5 @@ class ViewsonicPJD7820HD(object):
     if self.writeCommandFromNameReadBack('STATUS Power')=="0x5 0x14 0x0 0x3 0x0 0x0 0x0 0x1 0x18":
       return True
     return False
+  def getInput(self):
+    return self.writeCommandFromNameReadBack('STATUS Input')

@@ -110,6 +110,8 @@ if (count($our_device['compiled_links']['i'])||count($our_device['compiled_links
 				} else {
 					echo 'On';
 				}
+			} else {
+				echo trim($cmd_res);
 			}
 			echo '</li>';
 		}

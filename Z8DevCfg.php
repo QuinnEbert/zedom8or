@@ -10,7 +10,8 @@ $devices = array(
 		'signaling' => 'RS232 signaling',
 		'link_as' => 'projector',
 		'probes' => array(
-			'power' => './pjd7820hd.py \'power_status\''
+			'power' => './pjd7820hd.py \'power_status\'',
+			'input' => './pjd7820hd.py \'input_status\'',
 		),
 		'links' => array(
 			'inputs' => array(

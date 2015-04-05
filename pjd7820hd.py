@@ -26,5 +26,7 @@ else:
       print "1"
     else:
       print "0"
+  elif sys.argv[1]=='input_status':
+    print projector.getInput()
   else:
     projector.writeCommandFromName(sys.argv[1])
