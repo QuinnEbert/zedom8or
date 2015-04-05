@@ -1,16 +1,15 @@
 #!/usr/bin/python
 import viewsonicpjd7820hd
-
-# Create a projector object attached to the first USB Serial port.
+import sys
 projector = viewsonicpjd7820hd.ViewsonicPJD7820HD('/dev/ttyUSB0')
-
-# Turn the projector on
-#projector.writeCommandFromName('Power ON')
-
-# Select the first HDMI input
-#projector.writeCommandFromName('HDMI-1')
-
-# Done watching a movie, shut it off.
-#projector.writeCommandFromName('Power OFF')
-
-print projector.getPower()
+if len(sys.argv)>2:
+  if sys.argv[2]=='--return':
+    print projector.writeCommandFromNameReadBack(sys.argv[1])
+else:
+  if sys.argv[1]=='power_status':
+    if projector.getPower():
+      print "1"
+    else:
+      print "0"
+  else:
+    projector.writeCommandFromName(sys.argv[1])
