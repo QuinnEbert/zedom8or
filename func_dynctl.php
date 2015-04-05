@@ -90,9 +90,10 @@ echo '</td>';
 if (count($our_device['compiled_links']['i'])||count($our_device['compiled_links']['o'])||isset($our_device['data']['probes'])) {
 	echo '<td align="left" valign="top">';
 	if (isset($our_device['data']['probes'])) {
-		echo '<h2>Device Status</h2>';
+		echo '<h2>Device Status</h2><ul>';
 		$first_probe = true;
 		foreach ($our_device['data']['probes'] as $probe => $p_cmd) {
+			echo '<li>';
 			if (!$first_probe) {
 				echo '<br />';
 			} else {
@@ -107,7 +108,9 @@ if (count($our_device['compiled_links']['i'])||count($our_device['compiled_links
 					echo 'On';
 				}
 			}
+			echo '</li>';
 		}
+		echo '</ul>';
 	}
 	if (count($our_device['compiled_links']['i'])||count($our_device['compiled_links']['o'])) {
 		echo '<h2>Linked Devices</h2>';
