@@ -94,14 +94,14 @@ if (count($our_device['compiled_links']['i'])||count($our_device['compiled_links
 	echo '<td align="left" valign="top">';
 	if (isset($our_device['data']['probes'])) {
 		echo '<h2>Device Status</h2><ul>';
-		$first_probe = true;
+		//$first_probe = true;
 		foreach ($our_device['data']['probes'] as $probe => $p_cmd) {
 			echo '<li>';
-			if (!$first_probe) {
+			/*if (!$first_probe) {
 				echo '<br />';
 			} else {
 				$first_probe = false;
-			}
+			}*/
 			echo ucfirst($probe).': ';
 			$cmd_res = `$p_cmd`;
 			if (trim($cmd_res)=='0'||trim($cmd_res)=='1') {
