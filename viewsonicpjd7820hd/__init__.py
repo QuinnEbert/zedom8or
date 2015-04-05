@@ -87,6 +87,23 @@ class ViewsonicPJD7820HD(object):
     finally:
       self.disconnectSerial()
 
+  def writeCommandReadBack(self, command):
+    """Write a command as an ascii string, will be converted to hex and return command result.
+
+    Args:
+       command: (string) ascii characters to be hexified for writing to serial
+    """
+    self.verifyCommand(command)
+    hex_command = self.asciiCommandToHex(command)
+    returns = ""
+    try:
+      self.connectSerial()
+      self.serial_connection.write(hex_command)
+      returns = self.serial_connection.read(1)
+    finally:
+      self.disconnectSerial()
+    return returns.decode("utf-8")
+
   def writeCommandFromName(self, command_name):
     """Write a command based on it's named entry in commands.py.
 
@@ -97,6 +114,16 @@ class ViewsonicPJD7820HD(object):
       raise InvalidCommandException("Given command name not in commands.py")
     self.writeCommand(self.command_dict[command_name])
 
+  def writeCommandFromNameReadBack(self, command_name):
+    """Write a command based on it's named entry in commands.py and read command result.
+
+    Args:
+       command: (string) command name from commands.py
+    """
+    if command_name not in self.command_dict:
+      raise InvalidCommandException("Given command name not in commands.py")
+    return self.writeCommandReadBack(self.command_dict[command_name])
+
   def powerOn(self):
     """Turn the projector power on."""
     self.writeCommandFromName('Power ON')
@@ -104,3 +131,6 @@ class ViewsonicPJD7820HD(object):
   def powerOff(self):
     """Turn the projector power off."""
     self.writeCommandFromName('Power OFF')
+
+  def getPower(self):
+    return self.writeCommandFromNameReadBack('STATUS Power')

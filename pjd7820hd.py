@@ -5,7 +5,7 @@ import viewsonicpjd7820hd
 projector = viewsonicpjd7820hd.ViewsonicPJD7820HD('/dev/ttyUSB0')
 
 # Turn the projector on
-projector.writeCommandFromName('Power ON')
+#projector.writeCommandFromName('Power ON')
 
 # Select the first HDMI input
 #projector.writeCommandFromName('HDMI-1')
@@ -13,3 +13,4 @@ projector.writeCommandFromName('Power ON')
 # Done watching a movie, shut it off.
 #projector.writeCommandFromName('Power OFF')
 
+print projector.getPower()

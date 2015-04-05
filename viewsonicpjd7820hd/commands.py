@@ -14,6 +14,7 @@ and all commands are available in ALL."""
 POWER = [
   ("Power ON", "0614000400341100005D"),
   ("Power OFF", "0614000400341101005E"),
+  ("STATUS Power", "071400050034000011005E"),
 ]
 ######################
 ### Input
