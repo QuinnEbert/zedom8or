@@ -38,7 +38,10 @@ else:
       print "C-Video"
     elif inputStr=="0x5 0x14 0x0 0x3 0x0 0x0 0x0 0x6 0x1d":
       print "S-Video"
+    elif inputStr=="0x0 0x0 0x0 0x0 0x0 0x0":
+      print "None (unit powered off)"
     else:
-      print inputStr
+      # This is a catchall based on my hands-on observations:
+      print "None (unit starting up)"
   else:
     projector.writeCommandFromName(sys.argv[1])
