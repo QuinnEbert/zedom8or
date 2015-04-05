@@ -100,7 +100,7 @@ class ViewsonicPJD7820HD(object):
       self.connectSerial()
       self.serial_connection.flush()
       self.serial_connection.write(hex_command)
-      time.sleep(1)
+      time.sleep(0.333)
       got_data = self.serial_connection.read(self.serial_connection.inWaiting())
       for c in got_data:
         returns = returns + str(hex(ord(c))) + " "
