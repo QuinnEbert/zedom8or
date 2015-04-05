@@ -188,12 +188,6 @@ table.ctlTable tr td input {
     <ul class="nav">
       <li><a href="index.php">Welcome</a></li>
     </ul>
-    Quick Access
-    <ul class="nav">
-      <li><a href="index.php?powers">Power Switches</a></li>
-      <li><a href="index.php?vollev">Volume Levels</a></li>
-      <li><a href="index.php?inputs">Input Switches</a></li>
-    </ul>
     Full Control (NEW)
     <ul class="nav">
       <?php
@@ -202,6 +196,12 @@ table.ctlTable tr td input {
       	  echo('<li><a href="index.php?dynctl='.$devInfo['link_as'].'">'.$devName.'</a></li>');
       }
       ?>
+    </ul>
+    Quick Access (OLD)
+    <ul class="nav">
+      <li><a href="index.php?powers">Power Switches</a></li>
+      <li><a href="index.php?vollev">Volume Levels</a></li>
+      <li><a href="index.php?inputs">Input Switches</a></li>
     </ul>
     Information
     <ul class="nav">
