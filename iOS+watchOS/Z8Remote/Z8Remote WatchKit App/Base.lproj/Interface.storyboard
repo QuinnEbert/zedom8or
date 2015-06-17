@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <label width="1" alignment="left" text="Source:" id="8fi-qs-uOv"/>
+                        <label width="1" alignment="left" text="n/a" id="ODu-mK-hUu"/>
+                        <label width="1" alignment="left" text="Volume:" id="1yX-Lm-xjJ"/>
+                        <label width="1" alignment="left" text="n/a" id="kXX-Eh-joh"/>
+                        <slider width="1" alignment="left" value="40" maximum="80" steps="16" id="auz-xH-Yy0">
+                            <connections>
+                                <action selector="slider_update:" destination="AgC-eL-Hgc" id="luE-8o-a4h"/>
+                            </connections>
+                        </slider>
+                    </items>
+                    <connections>
+                        <outlet property="lblSource" destination="ODu-mK-hUu" id="POA-WD-IAH"/>
+                        <outlet property="lblVolume" destination="kXX-Eh-joh" id="nJ3-fW-s0c"/>
+                        <outlet property="slider" destination="auz-xH-Yy0" id="dy5-As-IuX"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="353" y="838"/>
+        </scene>
+    </scenes>
+</document>
