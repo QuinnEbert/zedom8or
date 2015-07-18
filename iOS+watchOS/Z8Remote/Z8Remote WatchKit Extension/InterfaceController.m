@@ -27,6 +27,8 @@
     [super willActivate];
     
     [self full_update];
+    
+    self.tmr = [NSTimer scheduledTimerWithTimeInterval:15.0 target:self selector:@selector(update_tick:) userInfo:nil repeats:YES];
 }
 
 - (void)didDeactivate {
@@ -40,6 +42,10 @@
     [NSURLConnection sendSynchronousRequest:req returningResponse:nil error:nil];
     
     [self full_update];
+}
+
+- (void)update_tick:(NSTimer *)timer {
+    [self full_update]; 
 }
 
 - (void)full_update {

@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet WKInterfaceLabel *lblSource;
 @property (strong, nonatomic) IBOutlet WKInterfaceLabel *lblVolume;
 @property (strong, nonatomic) IBOutlet WKInterfaceSlider *slider;
+@property (strong, retain) NSTimer *tmr;
 
 @end
