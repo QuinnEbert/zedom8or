@@ -27,10 +27,10 @@ if (!function_exists('z8_exec_devctl_cmd')) {
 		$our_device = get_named_device($z8dev);
 		// Is it a local or remote device?
 		$remote_device = false;
-		if (isset($our_device['link_as'])) {
+		if (isset($our_device['data']['link_as'])) {
 			if (isset($remDevs[$remdev_key])) {
 				$remote_device = true;
-				$remdev_key = $our_device['link_as'];
+				$remdev_key = $our_device['data']['link_as'];
 			}
 		}
 		if ($remote_device) {
@@ -53,7 +53,7 @@ if (!function_exists('z8_exec_devctl_cmd')) {
 			// Local Device:
 		
 			// Is it a phpClass device or not?
-			if ($our_device['control']!='phpClass') {
+			if ($our_device['data']['control']!='phpClass') {
 				// "Straight" device, run command via system():
 				ob_start();
 				//FIXME: this is a security breach waiting to happen (check the command against Dev Config!!!)
@@ -61,7 +61,7 @@ if (!function_exists('z8_exec_devctl_cmd')) {
 				ob_end_clean();
 			} else {
 				// phpClass device, run command via class:
-				$ctlMeth = new $our_device['class']('192.168.1.17'); // <= FIXME: temporary hack for my VSX only!!!
+				$ctlMeth = new $our_device['data']['class']('192.168.1.17'); // <= FIXME: temporary hack for my VSX only!!!
 				$ctlMeth->$z8cmd();
 			}
 		}
