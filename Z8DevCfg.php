@@ -4,7 +4,7 @@ $devices = array(
 		'control' => 'commands',
 		'device' => 'projector',
 		'device_descriptive' => 'DLP Projector (i-Chip DMD)',
-		'room' => 'Theatre',
+		'room' => 'Theatre/Sun Room',
 		'power' => 'surge-arrested mains',
 		/*'network' => 'no Ethernet',*/
 		'signaling' => 'RS232 signaling',
@@ -37,9 +37,9 @@ $devices = array(
 		'class' => 'vsx1023k',
 		'device' => 'receiver',
 		'device_descriptive' => 'Receiver/Amplifier supporting audio AirPlay',
-		'room' => 'Theatre',
+		'room' => 'Theatre/Sun Room',
 		'power' => 'surge-arrested mains',
-		'network' => 'fast Ethernet, our DHCP',
+		'network' => 'fast Ethernet, LAN DHCP',
 		'link_as' => 'receiver',
 		'links' => array(
 			'outputs' => array(
@@ -54,7 +54,8 @@ $devices = array(
 					'caps' => 'Banana Clips',
 					'power' => 'Receiver'
 				),
-				'Rear Pair' => array(
+				// Rear/Centre AWOL until we get more copper (wish I were kidding):
+				/*'Rear Pair' => array(
 					'name' => 'Polk Audio Mid Satellites (Stereo Pair)',
 					'wire' => 'Doubly Insulated Copper Pairs',
 					'caps' => 'Banana Clips',
@@ -65,7 +66,7 @@ $devices = array(
 					'wire' => 'Doubly Insulated Copper Pair',
 					'caps' => 'Banana Clips',
 					'power' => 'Receiver'
-				),
+				),*/
 				'Subwoofer' => array(
 					'name' => 'Polk Audio 16-inch Selectable Passive/Active Woofer with Direct Inputs',
 					'wire' => 'Monster Cable Blue RCA',
