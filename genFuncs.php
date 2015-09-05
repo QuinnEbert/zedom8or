@@ -1,5 +1,9 @@
 <?php
 
+ini_set('error_log','z8_devel.log');
+ini_set('log_errors',true);
+ini_set('error_reporting',E_ALL);
+
 if (!function_exists('z8_exec_devctl_cmd')) {
 	function z8_exec_devctl_cmd($z8dev,$z8cmd) {
 		// Load Z8 general config:
@@ -11,8 +15,10 @@ if (!function_exists('z8_exec_devctl_cmd')) {
 			if ($device['control'] == 'phpClass') {
 				$modFile = dirname(__FILE__).'/DevicesLibrary/'.$device['class'].'.php';
 				if (!file_exists($modFile)) {
+					trigger_error('Cannot load module: '.$modFile,E_USER_NOTICE);
 					die('Cannot load module: '.$modFile);
 				} else {
+					trigger_error('Module can load: '.$modFile,E_USER_NOTICE);
 					require_once $modFile;
 				}
 			}
@@ -22,6 +28,7 @@ if (!function_exists('z8_exec_devctl_cmd')) {
 		// Is it a local or remote device?
 		$remdev_key = $our_device['link_as'];
 		if (isset($remDevs[$remdev_key])) {
+			trigger_error('device is linked',E_USER_NOTICE);
 			// Remote Device:
 		
 			$dest = $remDevs[$remdev_key];
@@ -36,6 +43,7 @@ if (!function_exists('z8_exec_devctl_cmd')) {
 			$rslt = curl_exec($curl);
 			curl_close($curl);
 		} else {
+			trigger_error('device is direct',E_USER_NOTICE);
 			// Local Device:
 		
 			// Is it a phpClass device or not?
