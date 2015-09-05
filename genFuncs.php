@@ -65,7 +65,10 @@ if (!function_exists('z8_exec_devctl_cmd')) {
 
 if (!function_exists('get_named_device')) {
 	function get_named_device($devName) {
-		global $devices;
+		// Load Z8 general config:
+		require dirname(__FILE__).'/Z8Config.php';
+		// Load the device config:
+		require dirname(__FILE__).'/Z8DevCfg.php';
 		foreach ($devices as $device_name => $device) {
 			if ($device['link_as']==$devName) {
 				$our_device = array(
