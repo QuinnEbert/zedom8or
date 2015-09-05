@@ -26,8 +26,14 @@ if (!function_exists('z8_exec_devctl_cmd')) {
 		// Get the device specifics:
 		$our_device = get_named_device($z8dev);
 		// Is it a local or remote device?
-		$remdev_key = $our_device['link_as'];
-		if (isset($remDevs[$remdev_key])) {
+		$remote_device = false;
+		if (isset($our_device['link_as'])) {
+			if (isset($remDevs[$remdev_key])) {
+				$remote_device = true;
+				$remdev_key = $our_device['link_as'];
+			}
+		}
+		if ($remote_device) {
 			trigger_error('device is linked',E_USER_NOTICE);
 			// Remote Device:
 		
@@ -55,7 +61,7 @@ if (!function_exists('z8_exec_devctl_cmd')) {
 				ob_end_clean();
 			} else {
 				// phpClass device, run command via class:
-				$ctlMeth = new $our_device['class']('192.168.1.69'); // <= FIXME: temporary hack for my VSX only!!!
+				$ctlMeth = new $our_device['class']('192.168.1.17'); // <= FIXME: temporary hack for my VSX only!!!
 				$ctlMeth->$z8cmd();
 			}
 		}
