@@ -3,15 +3,41 @@ zedom8or: reasonable-cost theatre automation!
 
 Using a combination of [PioneerRebel](https://github.com/QuinnEbert/PioneerRebel "PioneerRebel") *(and a compatible receiver)*, [USB-UIRT](http://www.usbuirt.com "USB-UIRT"), and [LIRC](http://www.lirc.org "LIRC"), **zedom8or** aims to produce a low-effort, reasonable-cost single-room (for now) home theatre automation package.
 
+***Hey!  I've finally significantly updated this document (on 05 September 2015)!***
+
+Solid(ish) Features:
+--------------------
+
+* ***Tested on Raspberry Pi as a primary platform (both original model B and Raspberry Pi 2).***
+* Web-based interface for control.
+* Manage Pioneer VSX-1022-K/VSX-1023-K (and compatible) Telnet-controllable home theatre amplifier systems.
+* Backend scripts for integrating control of serial-controllable display systems (examples based on my in-home config with a ViewSonic DLP).
+* Monitor APCUPSD-compatible UPS battery backup systems in the web interface.
+
+Working Features Still Seeing Heavy Changes:
+--------------------------------------------
+
++ A new `Z8DevCfg.php` file that you can now fully configure to have Z8 fully understand your home automation system.  *The format with this should stay relatively stable but expect a lot more to be added.*
++ Along with `Z8DevCfg.php` comes a still-in-flux system for extending Z8 with your own PHP classes and backend control scripts.  *Feel free to develop against this now, but, expect some changes to how things work over the next 3-4 months or so.*
++ A JSON-outputting API on `/endpoint` that you can use to control your Z8 system from, well, whatever your heart desires.  *The API is growing quickly, but I don't expect to break anything major yet, so don't worry too much about writing things against this!*
++ Working code that demonstrates simple control of your Z8 system on Apple Watch.  *This uses the API mentioned above, right now though, it only does volume control and some minimal status display--this HAS been tested on real hardware!*
+
+Fun Things that Need More Work Someday(TM):
+-------------------------------------------
+
++ A handful of R&D-quality utilities (such as my favorite, a series of apps that monitor audio levels in your theatre space, and attempt to auto-level your receiver to compensate (great if your ears are bad like mine).
++ Probably a tonne of other odds and ends I've forgotten.  :-(
+
 Plans
 -----
 
-* Web-based interface for control.
-* Manage Pioneer VSX-1022-K (and compatible) Telnet-controllable home theatre amplifier systems.
+* One loaded word: "Alexa"
+* I will receive access to Phillips Hue and various WeMo hardware before 15 October 2015, if those are as hackable as I've been told, all I can say is, keep an eye out in that timeframe. ;-)
 * Leverage your self-learned USB-UIRT remote commands to automate command sequences, de-complicating your theatre enjoyment.
-* Monitor APCUPSD-compatible UPS battery backup systems.
-* ***Tested on Raspberry Pi as a primary platform.***
-* 3D-printable (tested on Solidoodle 2) STL model files for printable cases that can be used to better situate and arrange your R-Pi and/or USB-UIRT.
+
+On-Hold Plans
+-------------
+* 3D-printable (tested on Solidoodle 2) STL model files for printable cases that can be used to better situate and arrange your R-Pi and/or USB-UIRT.  *The Solidoodle didn't work out, and if you do some searching about customer experiences working with the company, it becomes obvious why--I'll be getting a different printer by November 2015 and should be able to get this plan moving forward again.*
 
 Donations
 ------
@@ -22,6 +48,10 @@ There has been a lot more interest in Zedom8or/PioneerRebel than I'd ever expect
 
 Status
 ------
+
+**05th Sep, 2015:**
+
+* Improved this document somewhat (there have been several commits since my last update of this doc, mind you!)
 
 **01st Mar, 2015:**
 
