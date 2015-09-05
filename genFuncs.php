@@ -15,10 +15,8 @@ if (!function_exists('z8_exec_devctl_cmd')) {
 			if ($device['control'] == 'phpClass') {
 				$modFile = dirname(__FILE__).'/DevicesLibrary/'.$device['class'].'.php';
 				if (!file_exists($modFile)) {
-					trigger_error('Cannot load module: '.$modFile,E_USER_NOTICE);
 					die('Cannot load module: '.$modFile);
 				} else {
-					trigger_error('Module can load: '.$modFile,E_USER_NOTICE);
 					require_once $modFile;
 				}
 			}
@@ -28,13 +26,12 @@ if (!function_exists('z8_exec_devctl_cmd')) {
 		// Is it a local or remote device?
 		$remote_device = false;
 		if (isset($our_device['data']['link_as'])) {
+			$remdev_key = $our_device['data']['link_as'];
 			if (isset($remDevs[$remdev_key])) {
 				$remote_device = true;
-				$remdev_key = $our_device['data']['link_as'];
 			}
 		}
 		if ($remote_device) {
-			trigger_error('device is linked',E_USER_NOTICE);
 			// Remote Device:
 		
 			$dest = $remDevs[$remdev_key];
@@ -49,7 +46,6 @@ if (!function_exists('z8_exec_devctl_cmd')) {
 			$rslt = curl_exec($curl);
 			curl_close($curl);
 		} else {
-			trigger_error('device is direct',E_USER_NOTICE);
 			// Local Device:
 		
 			// Is it a phpClass device or not?
