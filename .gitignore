@@ -1,0 +1,6 @@
+# Isn't the Finder lovely?
+.DS_Store
+
+# Sorry, not gonna commit ZedAlexa until I've re-written the Amazon-licenced
+# stuff, don't need the headache :(
+/ZedAlexa/
