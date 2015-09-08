@@ -4,3 +4,6 @@
 # Sorry, not gonna commit ZedAlexa until I've re-written the Amazon-licenced
 # stuff, don't need the headache :(
 /ZedAlexa/
+
+# Exclude IDE cruft (PhpStorm)
+/.idea/
