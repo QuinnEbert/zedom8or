@@ -32,6 +32,48 @@ $devices = array(
 			),
 		),
 	),
+	/*'Vizio VL370M' => array(
+		'control' => 'lirccmd+', // <= 'lirccmd+' allows a mix of LIRC and command use to help an otherwise dumb device
+		'device' => 'bedroomtv',
+		'device_descriptive' => 'DTV-Equipped LCD Panel Television',
+		'room' => 'Bedroom',
+		'power' => 'surge-arrested mains',
+		//'network' => 'no Ethernet',
+		'signaling' => 'Philips RC6 compatible signaling, power switching via WeMo',
+		'link_as' => 'bedroomtv',
+		'links' => array(
+			'inputs' => array(
+				'HDMI-In 1' => 'nodevice',
+				'C-Video/RCA-In 1' => 'nodevice',
+			),
+		),
+		'probes' => array(
+			'power' => array(
+				'phpClass' => 'wemo_belkin',
+				'function' => 'check_power',
+				'argument' => 'bed1wemo', // <= network address in this case
+			),
+		),
+		'commands' => array(
+			// NOTE: you should ONLY use WeMo toggle for device power switching
+			// if you know for a fact (like I do) that the device in question
+			// has solid NVRAM for settings storage (this device does), and if
+			// you know for a fact that device's NVRAM is battery-backed, do this
+			// only if you know for a fact your device's NVRAM batteries aren't
+			// flat (in this device's case modern flash storage is used)
+			'Power' => array(
+				array('name'=>'Power > Off','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'Power OFF\''),
+				array('name'=>'Power > On','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'Power ON\''),
+			),
+			'Inputs' => array(
+				array('name'=>'Input > HDMI','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'HDMI\''),
+				array('name'=>'Input > VGA 1','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'VGA 1\''),
+				array('name'=>'Input > VGA 2','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'VGA 2\''),
+				array('name'=>'Input > Composite','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'Composite\''),
+				array('name'=>'Input > S-Video','type'=>'button_oneshot','command'=>'./pjd7820hd.py \'S-Video\''),
+			),
+		),
+	),*/
 	'Pioneer VSX-1023-K' => array(
 		'control' => 'phpClass',
 		'class' => 'vsx1023k',

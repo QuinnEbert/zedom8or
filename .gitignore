@@ -1,6 +1,9 @@
 # Isn't the Finder lovely?
 .DS_Store
 
+# Don't track Python bytecode
+*.pyc
+
 # Sorry, not gonna commit ZedAlexa until I've re-written the Amazon-licenced
 # stuff, don't need the headache :(
 /ZedAlexa/
