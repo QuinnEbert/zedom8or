@@ -6,7 +6,8 @@ require_once(dirname(dirname(__FILE__)).'/Z8Config.php');
 require_once(dirname(dirname(__FILE__)).'/PioneerRebel/pioneer.lib.php');
 $src = strval(pvRebel_getSource($pioneer));
 $vol = strval(pvRebel_getVolVal($pioneer));
+$pwr = strval(pvRebel_getPower($pioneer));
 if (isset($_GET['volume'])) {
 	pvRebel_setVolSet($pioneer,$_GET['volume']);
 }
-die(json_encode(array('source'=>$src,'volume'=>$vol)));
+die(json_encode(array('source'=>$src,'volume'=>$vol,'toggle'=>$pwr)));
