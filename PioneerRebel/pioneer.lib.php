@@ -83,6 +83,16 @@
 	function pvRebel_setSource($address,$fnInput) {
 		pvRebel_SEND_CMD($address,$fnInput.'FN');
 	}
+	// Send a command to the 1022-K amp unit requesting the power on/off status
+	// 
+	// Returns string "ON" or "OFF" on success indicating power status.  On failure,
+	// returns BOOLEAN type false (use === or !== to differentiate 0 from false!!!)
+	function pvRebel_getPower($address) {
+		$out = pvRebel_SEND_CMD($address,'?P');
+		if (strstr($out,'PWR0'))
+			return "ON";
+		return "OFF";
+	}
 	// Send a command to the 1022-K amp unit requesting the power turn on or off
 	// 
 	// Pass $fnPower=true for power-on (requires network over sleep enabled)
